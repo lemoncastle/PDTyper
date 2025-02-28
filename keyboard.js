@@ -1,4 +1,4 @@
-function generateKeyboard() {
+function generateKeyboard(containerId) {
     const keys = [
         '~', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '+', 'Delete',
         'Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', '\\',
@@ -40,10 +40,16 @@ function generateKeyboard() {
         } else {
             keyDiv.textContent = key;
         }
+        keyDiv.addEventListener('click', () => {
+            keyDiv.classList.toggle('highlight');
+        });
         keyboardBase.appendChild(keyDiv);
     });
 
-    document.getElementById('keyboard-container').appendChild(keyboardBase);
+    document.getElementById(containerId).appendChild(keyboardBase);
 }
 
-document.addEventListener('DOMContentLoaded', generateKeyboard);
+document.addEventListener('DOMContentLoaded', () => {
+    generateKeyboard('keyboard-container-1');
+    generateKeyboard('keyboard-container-2');
+});

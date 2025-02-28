@@ -20,6 +20,20 @@ body * {
     grid-gap: 5px;
 }
 
+.keyboard-container {
+    transform: scale(0.5); /* Scale down by half */
+    transform-origin: top left; /* Ensures proper scaling */
+    display: inline-block;
+    position: relative;
+}
+
+#keyboard-container-1 {
+    border: 2px solid red;
+}
+
+#keyboard-container-2 {
+    border: 2px solid blue;
+}
 
 .key {
     background-color: rgb(243, 243, 243);
@@ -32,8 +46,21 @@ body * {
 }
 
 .key:hover {
-  border: 1px solid #eeeeee;
-  
+  border: 1px solid #eeeeee; 
+}
+
+.highlight {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+.keyboard-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 600px;
+    padding: 20px;
+    height: 100vh;
 }
 
 .delete {
