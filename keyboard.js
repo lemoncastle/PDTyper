@@ -1,3 +1,17 @@
+// Function to read CSV file
+async function readCSV(filePath) {
+    const response = await fetch(filePath);
+    const text = await response.text();
+    return text;
+}
+
+// Read the CSV file and store it in a variable called data
+let data;
+readCSV('time_of_day.csv').then(csvData => {
+    data = csvData;
+});
+
+// Function to generate the keyboard
 function generateKeyboard(containerId) {
     const keys = [
         '~', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '+', 'Delete',
@@ -49,18 +63,49 @@ function generateKeyboard(containerId) {
     document.getElementById(containerId).appendChild(keyboardBase);
 }
 
-function toggleHighlight() {
-    const keysToHighlight = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'];
-    document.querySelectorAll('.key').forEach(keyDiv => {
-        if (keysToHighlight.includes(keyDiv.textContent)) {
-            keyDiv.classList.toggle('highlight');
-        }
-    });
+// Function to animate the keyboard
+function animateKeyboard(data, containerId) {
+    let index = 0;
+
+    function highlightNextKey() {
+        if (index >= data.length) return;
+
+        const row = data[index];
+        const key = row['time of day'];
+        const holdTime = +row['hold_time'];
+        const flightTime = +row['flight_time'];
+
+        const keyDivs = document.querySelectorAll(`#${containerId} .key`);
+        keyDivs.forEach(keyDiv => {
+            if (keyDiv.textContent === key) {
+                console.log(`Highlighting key: ${key} in container: ${containerId}`);
+                keyDiv.classList.add('highlight');
+                setTimeout(() => {
+                    keyDiv.classList.remove('highlight');
+                    setTimeout(highlightNextKey, flightTime);
+                }, holdTime);
+            }
+        });
+
+        index++;
+    }
+
+    highlightNextKey();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     generateKeyboard('keyboard-container-1');
     generateKeyboard('keyboard-container-2');
 
-    document.getElementById('animate-button').addEventListener('click', toggleHighlight);
+    d3.csv('time_of_day.csv').then(data => {
+        document.getElementById('animate-button').addEventListener('click', () => {
+            const selectedTimeOfDay = document.getElementById('time-of-day-select').value;
+            const filteredDataFalse = data.filter(row => row['time of day'] === selectedTimeOfDay && row['Parkinsons'] === 'False');
+            const filteredDataTrue = data.filter(row => row['time of day'] === selectedTimeOfDay && row['Parkinsons'] === 'True');
+            console.log(filteredDataFalse);
+            console.log(filteredDataTrue);
+            animateKeyboard(filteredDataFalse, 'keyboard-container-1');
+            animateKeyboard(filteredDataTrue, 'keyboard-container-2');
+        });
+    });
 });
