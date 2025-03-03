@@ -49,7 +49,18 @@ function generateKeyboard(containerId) {
     document.getElementById(containerId).appendChild(keyboardBase);
 }
 
+function toggleHighlight() {
+    const keysToHighlight = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'];
+    document.querySelectorAll('.key').forEach(keyDiv => {
+        if (keysToHighlight.includes(keyDiv.textContent)) {
+            keyDiv.classList.toggle('highlight');
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     generateKeyboard('keyboard-container-1');
     generateKeyboard('keyboard-container-2');
+
+    document.getElementById('animate-button').addEventListener('click', toggleHighlight);
 });
