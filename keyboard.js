@@ -22,6 +22,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+function scaleKeyboards() {
+    const containers = document.querySelectorAll('.keyboard-container');
+    const wrapper = document.querySelector('.keyboard-wrapper');
+
+    // Calculate the total width of the keyboards
+    const totalKeyboardWidth = containers.length * 1100; // Assuming each keyboard has a max width of 1085px
+
+    // Calculate the scale factor based on the width of the wrapper
+    const scaleFactor = Math.min(wrapper.clientWidth / totalKeyboardWidth, 1);
+
+    // Adjust scale for keyboards
+    containers.forEach(container => {
+        container.style.transform = `scale(${scaleFactor})`;
+    });
+
+    // Dynamically adjust the gap based on screen width
+    const baseGap = 1100; // Original gap value
+    wrapper.style.gap = `${baseGap * scaleFactor}px`;
+}
+
+window.addEventListener('load', scaleKeyboards);
+window.addEventListener('resize', scaleKeyboards);
+
 // generate keyboard
 function generateKeyboard(containerId) {
     const keys = [

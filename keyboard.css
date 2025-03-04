@@ -8,7 +8,7 @@
 }
 
 .keyboard-base { /* inside container (styling) */
-    max-width: 1085px;
+    max-width: 100em;
     padding: 20px;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -22,8 +22,8 @@
 }
 
 .keyboard-container {
-    transform: scale(0.5); /* Scale down by half */
-    transform-origin: top left; /* Ensures proper scaling */
+    /* transform: scale(0.5); */
+    transform-origin: top left;
     display: inline-block;
     position: relative;
 }
