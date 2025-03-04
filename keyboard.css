@@ -1,23 +1,24 @@
-body * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+.keyboard-wrapper { /* outside container (positioning) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 590px;
+    padding: 100px;
+    border: 2px solid #454545;
 }
 
-.keyboard-base {
+.keyboard-base { /* inside container (styling) */
     max-width: 1085px;
     padding: 20px;
     position: absolute;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgb(197, 197, 197);
-    border-radius: 10px;
+    border-radius: 5px;
     display: grid;
     grid-template-columns: repeat(30, 30px);
     grid-template-rows: repeat(5, 60px);
     grid-gap: 5px;
+    border: 1px solid #456;
 }
 
 .keyboard-container {
@@ -27,7 +28,7 @@ body * {
     position: relative;
 }
 
-.key {
+.key { /* styling keys (on keyboard) */
     background-color: rgb(243, 243, 243);
     border: 2px solid black;
     border-radius: 5px;
@@ -37,62 +38,27 @@ body * {
     padding-top: 17px;
 }
 
-.key:hover {
-  border: 1px solid #eeeeee; 
-}
-
-.highlight {
+.key:hover { border: 1px solid #eeeeee; }
+.highlight { /* keys on click */
     background-color: cornflowerblue;
     color: white;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.12s, color 0.12s;
 }
 
-.keyboard-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 600px;
-    padding: 20px;
-    height: 100vh;
+#keyboard-container-2 .highlight { /* keys on click */
+    background-color: #4CAF50;
+    color: white;
+    transition: background-color 0.12s, color 0.12s;
 }
 
-.delete {
-    grid-column: span 4;
-}
-
-.tab {
-    grid-column: span 3;
-}
-
-.backslash {
-    grid-column: span 3;
-}
-
-.capslock {
-    grid-column: span 4;
-}
-
-.return {
-    grid-column: span 4;
-}
-
-.leftshift {
-    grid-column: span 5;
-}
-
-.rightshift {
-    grid-column: span 5;
-}
-
-.leftctrl {
-    grid-column: span 3;
-}
-
-.command {
-    grid-column: span 3;
-    font-size: 14px;
-}
-
-.space {
-    grid-column: span 13;
-}
+/*fixing keys*/
+.delete { grid-column: span 4; }
+.tab { grid-column: span 3; }
+.backslash { grid-column: span 3; }
+.capslock { grid-column: span 4; }
+.return { grid-column: span 4; }
+.leftshift { grid-column: span 5; }
+.rightshift { grid-column: span 5; }
+.leftctrl { grid-column: span 3; }
+.command { grid-column: span 3; font-size: 14px; }
+.space { grid-column: span 13; }
