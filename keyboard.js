@@ -77,8 +77,8 @@ function animateKeyboard(phrase, containerId) {
         if (key === ' ') {
             key = 'Space';
         }
-        const holdTime = 500; // Example hold time in milliseconds
-        const flightTime = 200; // Example flight time in milliseconds
+        const holdTime = 101.00279570777498; 
+        const flightTime = 170.51084570928285;
 
         console.log(`Animating key: ${key} with hold time: ${holdTime}ms and flight time: ${flightTime}ms`);
 
@@ -100,6 +100,39 @@ function animateKeyboard(phrase, containerId) {
     highlightNextKey();
 }
 
+function animateKeyboard1(phrase, containerId) {
+    let index = 0;
+
+    function highlightNextKey() {
+        if (index >= phrase.length) return;
+
+        let key = phrase[index].toUpperCase();
+        if (key === ' ') {
+            key = 'Space';
+        }
+        const holdTime = 117.29510685119627;
+        const flightTime = 190.47766735170018;
+
+        console.log(`Animating key: ${key} with hold time: ${holdTime}ms and flight time: ${flightTime}ms`);
+
+        const keyDivs = document.querySelectorAll(`#${containerId} .key`);
+        keyDivs.forEach(keyDiv => {
+            if (keyDiv.textContent === key) {
+                console.log(`Highlighting key: ${key} in container: ${containerId}`);
+                keyDiv.classList.add('highlight');
+                setTimeout(() => {
+                    keyDiv.classList.remove('highlight');
+                    setTimeout(highlightNextKey, flightTime);
+                }, holdTime);
+            }
+        });
+
+        index++;
+    }
+    highlightNextKey();
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
     generateKeyboard('keyboard-container-1');
     generateKeyboard('keyboard-container-2');
@@ -108,6 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('animate-button').addEventListener('click', () => {
         animateKeyboard(phrase, 'keyboard-container-1');
-        animateKeyboard(phrase, 'keyboard-container-2');
+        animateKeyboard1(phrase, 'keyboard-container-2');
     });
 });
