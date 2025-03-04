@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     generateKeyboard('keyboard-container-2');
 
     document.getElementById('animate-button').addEventListener('click', () => {
+        const phrase = document.getElementById('phrase-input').value || "the quick brown fox jumps over the lazy dog";
         animateKeyboard(phrase, 'keyboard-container-1',100,100);
         animateKeyboard(phrase, 'keyboard-container-2',100,159);
     });
