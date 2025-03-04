@@ -69,9 +69,10 @@ function generateKeyboard(containerId) {
 // Function to animate the keyboard
 function animateKeyboard(phrase, containerId) {
     let index = 0;
+    let stopAnimation = false;
 
     function highlightNextKey() {
-        if (index >= phrase.length) return;
+        if (index >= phrase.length || stopAnimation) return;
 
         let key = phrase[index].toUpperCase();
         if (key === ' ') {
@@ -98,13 +99,19 @@ function animateKeyboard(phrase, containerId) {
     }
 
     highlightNextKey();
+
+    // Add event listener for the stop button
+    document.getElementById('stop-button').addEventListener('click', () => {
+        stopAnimation = true;
+    });
 }
 
 function animateKeyboard1(phrase, containerId) {
     let index = 0;
+    let stopAnimation = false;
 
     function highlightNextKey() {
-        if (index >= phrase.length) return;
+        if (index >= phrase.length || stopAnimation) return;
 
         let key = phrase[index].toUpperCase();
         if (key === ' ') {
@@ -129,9 +136,14 @@ function animateKeyboard1(phrase, containerId) {
 
         index++;
     }
-    highlightNextKey();
-}
 
+    highlightNextKey();
+
+    // Add event listener for the stop button
+    document.getElementById('stop-button').addEventListener('click', () => {
+        stopAnimation = true;
+    });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     generateKeyboard('keyboard-container-1');
