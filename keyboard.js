@@ -1,18 +1,28 @@
-// Function to read CSV file
+//global variables
+let isAnimating1 = false;
+let isAnimating2 = false;
+let data;
+const phrase = "the quick brown fox jumps over the lazy dog";
+
 async function readCSV(filePath) {
     const response = await fetch(filePath);
     const text = await response.text();
     return text;
-}
-
-// Read the CSV file and store it in a variable called data
-let data;
-readCSV('time_of_day.csv').then(csvData => {
+} readCSV('./data/time_of_day.csv').then(csvData => {
     data = csvData;
-    console.log(data); // Log the data to the console for verification
 });
 
-// Function to generate the keyboard
+document.addEventListener('DOMContentLoaded', () => {
+    generateKeyboard('keyboard-container-1');
+    generateKeyboard('keyboard-container-2');
+
+    document.getElementById('animate-button').addEventListener('click', () => {
+        animateKeyboard(phrase, 'keyboard-container-1',100,100);
+        animateKeyboard(phrase, 'keyboard-container-2',100,159);
+    });
+});
+
+// generate keyboard
 function generateKeyboard(containerId) {
     const keys = [
         '~', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '+', 'Delete',
@@ -66,27 +76,52 @@ function generateKeyboard(containerId) {
     document.getElementById(containerId).appendChild(keyboardBase);
 }
 
-// Function to animate the keyboard
-function animateKeyboard(phrase, containerId) {
+// animates keyboard
+function animateKeyboard(phrase, containerId, holdTime, flightTime) {
+    let isAnimating = containerId === 'keyboard-container-1' ? isAnimating1 : isAnimating2;
+    if (isAnimating) return; // Prevent multiple animations
+    if (containerId === 'keyboard-container-1') {
+        isAnimating1 = true;
+    } else {
+        isAnimating2 = true;
+    }
+
     let index = 0;
     let stopAnimation = false;
+    
+    const outputElement1 = document.getElementById('kitten1');
+    const outputElement2 = document.getElementById('kitten2');
+
+    const progressBar1 = document.getElementById('progress-bar1');
+    const progressBar2 = document.getElementById('progress-bar2');
+
+    //clear elements
+    if (containerId === 'keyboard-container-1') {
+        outputElement1.textContent = '';
+        progressBar1.style.width = '0%';
+    } else {
+        outputElement2.textContent = '';
+        progressBar2.style.width = '0%';
+    }
 
     function highlightNextKey() {
-        if (index >= phrase.length || stopAnimation) return;
+        if (index >= phrase.length || stopAnimation) {
+            if (containerId === 'keyboard-container-1') {
+                isAnimating1 = false;
+            } else {
+                isAnimating2 = false;
+            }
+            return;
+        }
 
         let key = phrase[index].toUpperCase();
         if (key === ' ') {
             key = 'Space';
         }
-        const holdTime = 102.15139148571548; 
-        const flightTime = 171.0244362460203;
-
-        console.log(`Animating key: ${key} with hold time: ${holdTime}ms and flight time: ${flightTime}ms`);
 
         const keyDivs = document.querySelectorAll(`#${containerId} .key`);
         keyDivs.forEach(keyDiv => {
             if (keyDiv.textContent === key) {
-                console.log(`Highlighting key: ${key} in container: ${containerId}`);
                 keyDiv.classList.add('highlight');
                 setTimeout(() => {
                     keyDiv.classList.remove('highlight');
@@ -94,65 +129,25 @@ function animateKeyboard(phrase, containerId) {
                 }, holdTime);
             }
         });
-
-        index++;
-    }
-
-    highlightNextKey();
-
-    // Add event listener for the stop button
-    document.getElementById('stop-button').addEventListener('click', () => {
-        stopAnimation = true;
-    });
-}
-
-function animateKeyboard1(phrase, containerId) {
-    let index = 0;
-    let stopAnimation = false;
-
-    function highlightNextKey() {
-        if (index >= phrase.length || stopAnimation) return;
-
-        let key = phrase[index].toUpperCase();
-        if (key === ' ') {
-            key = 'Space';
+        if (containerId === 'keyboard-container-1') {
+            outputElement1.textContent += phrase[index];
+            progressBar1.style.width = ((index + 1) / phrase.length) * 100 + '%'; // Update progress bar 1
+        } else {
+            outputElement2.textContent += phrase[index];
+            progressBar2.style.width = ((index + 1) / phrase.length) * 100 + '%'; // Update progress bar 2
         }
-        const holdTime = 128.344778520649;
-        const flightTime = 210.85598559615897;
-
-        console.log(`Animating key: ${key} with hold time: ${holdTime}ms and flight time: ${flightTime}ms`);
-
-        const keyDivs = document.querySelectorAll(`#${containerId} .key`);
-        keyDivs.forEach(keyDiv => {
-            if (keyDiv.textContent === key) {
-                console.log(`Highlighting key: ${key} in container: ${containerId}`);
-                keyDiv.classList.add('highlight');
-                setTimeout(() => {
-                    keyDiv.classList.remove('highlight');
-                    setTimeout(highlightNextKey, flightTime);
-                }, holdTime);
-            }
-        });
-
         index++;
     }
 
     highlightNextKey();
 
-    // Add event listener for the stop button
+    // stop button
     document.getElementById('stop-button').addEventListener('click', () => {
         stopAnimation = true;
+        if (containerId === 'keyboard-container-1') {
+            isAnimating1 = false;
+        } else {
+            isAnimating2 = false;
+        }
     });
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    generateKeyboard('keyboard-container-1');
-    generateKeyboard('keyboard-container-2');
-
-    const phrase = "the quick brown fox jumps over the lazy dog";
-
-    document.getElementById('animate-button').addEventListener('click', () => {
-        animateKeyboard(phrase, 'keyboard-container-1');
-        animateKeyboard1(phrase, 'keyboard-container-2');
-    });
-});

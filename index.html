@@ -3,29 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="keyboard.css">
     <title>PD Typer</title>
+    <link rel="icon" href="./data/keeb.png" type="image/png">
+    <link rel="stylesheet" href="keyboard.css">
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-    <h1>How Does Parkinson's Medication Affect Typing Behavior?</h1>
+    <h1>tepm</h1>
+    <a href="https://codepen.io/irajsuhail/pen/mYMZVm">CSS keyboard</a>
     <!-- <label for="time-of-day-select">Select Time of Day:</label> -->
     <!-- <select id="time-of-day-select">
         <option value="morning">Morning</option>
         <option value="afternoon">Afternoon</option>
         <option value="evening">Evening</option>
     </select> -->
-    <button id="animate-button"> Begin Animation</button>
-    <button id="stop-button">Stop Animation</button>
     
-    <!-- <p> normal vs parkinsons typing (evening only hardcoded)</p>
-    <p> note that the shortest percieved latency is like 100ms</p>
-    <p> source <a href="https://stackoverflow.com/questions/536300/what-is-the-shortest-perceivable-application-response-delay">https://stackoverflow.com/questions/536300/what-is-the-shortest-perceivable-application-response-delay</a></p> -->
+    <p>Instructions: Click the start button :)</p>
+    <div id="text">
+        <p id="kitten1">meow</p>
+        <p id="kitten2">meow</p>
+    </div>
+    
     <div class="keyboard-wrapper">
         <div id="keyboard-container-1" class="keyboard-container"></div>
         <div id="keyboard-container-2" class="keyboard-container"></div>
     </div>
+    
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="keyboard.js"></script>
-    <a href="https://codepen.io/irajsuhail/pen/mYMZVm">Source</a>
+    
+    <div class="button-container">
+        <button id="animate-button">Begin Animation</button>
+        <button id="stop-button">Stop Animation</button>
+    </div>
+
+    <div id = "progress">
+        <div id="progress-container-1">
+            <div id="progress-bar1"></div>
+        </div>
+        <div id="progress-container-2">
+            <div id="progress-bar2"></div>
+        </div>
+    </div>
+
 </body>
 </html>
