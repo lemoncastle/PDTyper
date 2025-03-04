@@ -78,8 +78,8 @@ function animateKeyboard(phrase, containerId) {
         if (key === ' ') {
             key = 'Space';
         }
-        const holdTime = 101.00279570777498; 
-        const flightTime = 170.51084570928285;
+        const holdTime = 102.15139148571548; 
+        const flightTime = 171.0244362460203;
 
         console.log(`Animating key: ${key} with hold time: ${holdTime}ms and flight time: ${flightTime}ms`);
 
@@ -117,8 +117,8 @@ function animateKeyboard1(phrase, containerId) {
         if (key === ' ') {
             key = 'Space';
         }
-        const holdTime = 117.29510685119627;
-        const flightTime = 190.47766735170018;
+        const holdTime = 128.344778520649;
+        const flightTime = 210.85598559615897;
 
         console.log(`Animating key: ${key} with hold time: ${holdTime}ms and flight time: ${flightTime}ms`);
 
