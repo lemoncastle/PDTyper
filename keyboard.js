@@ -9,6 +9,7 @@ async function readCSV(filePath) {
 let data;
 readCSV('time_of_day.csv').then(csvData => {
     data = csvData;
+    console.log(data); // Log the data to the console for verification
 });
 
 // Function to generate the keyboard
@@ -51,6 +52,8 @@ function generateKeyboard(containerId) {
             keyDiv.textContent = 'Shift';
         } else if (key === 'LeftCtrl' || key === 'RightCtrl') {
             keyDiv.textContent = 'Ctrl';
+        } else if (key === 'Space') {
+            keyDiv.textContent = 'Space';
         } else {
             keyDiv.textContent = key;
         }
@@ -64,16 +67,20 @@ function generateKeyboard(containerId) {
 }
 
 // Function to animate the keyboard
-function animateKeyboard(data, containerId) {
+function animateKeyboard(phrase, containerId) {
     let index = 0;
 
     function highlightNextKey() {
-        if (index >= data.length) return;
+        if (index >= phrase.length) return;
 
-        const row = data[index];
-        const key = row['time of day'];
-        const holdTime = +row['hold_time'];
-        const flightTime = +row['flight_time'];
+        let key = phrase[index].toUpperCase();
+        if (key === ' ') {
+            key = 'Space';
+        }
+        const holdTime = 500; // Example hold time in milliseconds
+        const flightTime = 200; // Example flight time in milliseconds
+
+        console.log(`Animating key: ${key} with hold time: ${holdTime}ms and flight time: ${flightTime}ms`);
 
         const keyDivs = document.querySelectorAll(`#${containerId} .key`);
         keyDivs.forEach(keyDiv => {
@@ -97,15 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
     generateKeyboard('keyboard-container-1');
     generateKeyboard('keyboard-container-2');
 
-    d3.csv('time_of_day.csv').then(data => {
-        document.getElementById('animate-button').addEventListener('click', () => {
-            const selectedTimeOfDay = document.getElementById('time-of-day-select').value;
-            const filteredDataFalse = data.filter(row => row['time of day'] === selectedTimeOfDay && row['Parkinsons'] === 'False');
-            const filteredDataTrue = data.filter(row => row['time of day'] === selectedTimeOfDay && row['Parkinsons'] === 'True');
-            console.log(filteredDataFalse);
-            console.log(filteredDataTrue);
-            animateKeyboard(filteredDataFalse, 'keyboard-container-1');
-            animateKeyboard(filteredDataTrue, 'keyboard-container-2');
-        });
+    const phrase = "the quick brown fox jumps over the lazy dog";
+
+    document.getElementById('animate-button').addEventListener('click', () => {
+        animateKeyboard(phrase, 'keyboard-container-1');
+        animateKeyboard(phrase, 'keyboard-container-2');
     });
 });

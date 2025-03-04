@@ -27,14 +27,6 @@ body * {
     position: relative;
 }
 
-#keyboard-container-1 {
-    border: 2px solid red;
-}
-
-#keyboard-container-2 {
-    border: 2px solid blue;
-}
-
 .key {
     background-color: rgb(243, 243, 243);
     border: 2px solid black;
