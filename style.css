@@ -35,8 +35,8 @@ h2 { margin: 0; }
     display: flex;
     justify-content: center; 
     align-items: center;
-    margin-top: 10px;
-    gap: 20px;
+    /* margin-top: 10px; */
+    gap: 60px;
 }
 
 #animate-button, #stop-button {

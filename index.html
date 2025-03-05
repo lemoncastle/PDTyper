@@ -19,7 +19,11 @@
     </select> -->
     <p class="subtext"><i>Parkinson's medication aims to suppress involuntary movement, but how does that affect tasks that require fine motor skills like typing? Try the visualization to find out!</i></p>
     <p><u>Instructions:</u>      Click the start button for a default phrase, or enter a phrase of your own below.</p>
-    <input type="text" id="phrase-input" placeholder="Enter a phrase">
+    <input type="text" id="phrase-input" placeholder="Enter a phrase...">
+    <div class="button-container">
+        <button id="animate-button">Begin Animation</button>
+        <button id="stop-button">Stop Animation</button>
+    </div>
     <div id="text">
         <p id="kitten1">unmedicated typing speed</p>
         <p id="kitten2">medicated typing speed</p>
@@ -32,11 +36,6 @@
     
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="keyboard.js"></script>
-    
-    <div class="button-container">
-        <button id="animate-button">Begin Animation</button>
-        <button id="stop-button">Stop Animation</button>
-    </div>
 
     <div id = "progress">
         <div id="progress-container-1">
