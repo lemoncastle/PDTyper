@@ -39,7 +39,7 @@ function scaleKeyboards() {
     });
 
     // Dynamically adjust the gap based on screen width
-    const baseGap = 1100; // Original gap value
+    const baseGap = 1200; // Original gap value
     wrapper.style.gap = `${baseGap * scaleFactor}px`;
 }
 
