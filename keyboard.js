@@ -155,9 +155,11 @@ function animateKeyboard(phrase, containerId, holdTime, flightTime) {
         });
         if (containerId === 'keyboard-container-1') {
             outputElement1.textContent += phrase[index];
+            outputElement1.style.color = '#454545';
             progressBar1.style.width = ((index + 1) / phrase.length) * 100 + '%'; // Update progress bar 1
         } else {
             outputElement2.textContent += phrase[index];
+            outputElement2.style.color = '#454545';
             progressBar2.style.width = ((index + 1) / phrase.length) * 100 + '%'; // Update progress bar 2
         }
         index++;

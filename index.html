@@ -7,28 +7,56 @@
     <link rel="icon" href="./data/keeb.png" type="image/png">
     <link rel="stylesheet" href="keyboard.css">
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
-    <h1>How does Parkinson's Medication Affect Typing Behavior?</h1>
-    <!-- <label for="time-of-day-select">Select Time of Day:</label> -->
-    <!-- <select id="time-of-day-select">
-        <option value="morning">Morning</option>
-        <option value="afternoon">Afternoon</option>
-        <option value="evening">Evening</option>
-    </select> -->
-    <p class="subtext"><i>Parkinson's medication aims to suppress involuntary movement, but how does that affect tasks that require fine motor skills like typing? Try the visualization to find out!</i></p>
-    <p><u>Instructions:</u>      Click the start button for a default phrase, or enter a phrase of your own below.</p>
+
+<div class="container">
+    <section class="intro">
+        <div class="content">
+            <h1>How does Parkinson's Medication Affect Typing Behavior?</h1>
+            <p class="subtitle">Parkinson's medication aims to suppress involuntary movement, 
+                but how does that affect tasks that require fine motor skills like typing? Try the visualization to find out!</p>
+            <div class="button-button">
+                <a href="https://github.com/chriss-mo/typer" target="_blank" class="btn1">Demo</a>
+                <a href="https://github.com/chriss-mo/typer" target="_blank" class="btn2">Write Up</a>
+            </div>
+        </div>
+        <div class="imagee">
+            <img src="./data/frog.jpg" alt="frog">
+        </div>
+    </section>
+
+    <div class="people">
+        <p>DSC106 Project By: <a href="https://github.com/chriss-mo" target="_blank">Chris Mo</a>,
+            <a href="https://github.com/ZachUCSD" target="_blank">Zachary Thomason</a>,
+            <a href="https://github.com/lemoncastle" target="_blank">Adams Yang</a></p>
+    </div>
+
+    <section class="left-right">
+        <div class="stats-section">
+            <p>Stat 1: Value</p>
+            <p>Stat 2: Value</p>
+            <p>Stat 3: Value</p>
+            <p>Some more information</p>
+            <p>Maybe more?</p>
+        </div>
+        
+        <div class="visual-section">
+            <p> A nice visualization goes here</p>
+            <img src="./data/frog.jpg" alt="frog" style="height: 300px; width: 400px;">
+        </div>
+    </section>
+
+
+    <p id="space"><u>Instructions:</u> Enter a phrase!</p>
     <input type="text" id="phrase-input" placeholder="Enter a phrase...">
     <div class="button-container">
         <button id="animate-button">Begin Animation</button>
         <button id="stop-button">Stop Animation</button>
     </div>
     <div id="text">
-        <!-- <h2 id="heading1">Unmedicated Typing</h2>
-        <h2 id="heading1">Medicated Typing</h2> -->
-        <p id="kitten1">unmedicated typing output</p>
-        <p id="kitten2">medicated typing output</p>
+        <p id="kitten1" style="color: gray;">Unmedicated</p>
+        <p id="kitten2" style="color: gray;">Medicated</p>
     </div>
     
     <div class="keyboard-wrapper">
@@ -47,6 +75,7 @@
             <div id="progress-bar2"></div>
         </div>
     </div>
-    <a href="https://codepen.io/irajsuhail/pen/mYMZVm">CSS keyboard</a>
+    <!-- <a href="https://codepen.io/irajsuhail/pen/mYMZVm">CSS keyboard</a> -->
+</div>
 </body>
 </html>
