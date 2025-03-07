@@ -67,12 +67,25 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="keyboard.js"></script>
 
-    <div id = "progress">
-        <div id="progress-container-1">
-            <div id="progress-bar1"></div>
+    <div id="progress">
+        <div class="progress-container">
+            <div class="progress-info-box">
+                <span class="progress-text">Unmedicated:</span>
+                <div id="timer1">0 ms</div>
+            </div>
+            <div class="progress-bar-wrapper">
+                <div id="progress-bar1"></div>
+            </div>
         </div>
-        <div id="progress-container-2">
-            <div id="progress-bar2"></div>
+    
+        <div class="progress-container">
+            <div class="progress-info-box">
+                <span class="progress-text">Medicated:</span>
+                <div id="timer2">0 ms</div>
+            </div>
+            <div class="progress-bar-wrapper">
+                <div id="progress-bar2"></div>
+            </div>
         </div>
     </div>
     <!-- <a href="https://codepen.io/irajsuhail/pen/mYMZVm">CSS keyboard</a> -->
