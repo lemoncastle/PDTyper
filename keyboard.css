@@ -1,14 +1,14 @@
-.keyboard-wrapper { /* outside container (positioning) */
+/* outside container (positioning) */
+.keyboard-wrapper { 
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 590px;
     padding: 100px;
-    /* border: 2px solid #454545; */
     border-radius: 5px;
 }
 
-.keyboard-base { /* inside container (styling) */
+/* inside container (styling) */
+.keyboard-base { 
     max-width: 100em;
     padding: 20px;
     position: absolute;
@@ -19,8 +19,9 @@
     grid-template-columns: repeat(30, 30px);
     grid-template-rows: repeat(5, 60px);
     grid-gap: 5px;
-    border: 1px solid #456;
 }
+#keyboard-container-1 .keyboard-base { border: 3px solid cornflowerblue; }
+#keyboard-container-2 .keyboard-base { border: 3px solid #4CAF50; }
 
 .keyboard-container {
     transform: scale(0.4);
@@ -29,7 +30,8 @@
     position: relative;
 }
 
-.key { /* styling keys (on keyboard) */
+/* styling keys (on keyboard) */
+.key { 
     background-color: rgb(243, 243, 243);
     border: 2px solid black;
     border-radius: 5px;
@@ -39,17 +41,18 @@
     padding-top: 17px;
 }
 
-.key:hover { border: 1px solid #eeeeee; }
-.highlight { /* keys on click */
+/* .key:hover { border: 1px solid #eeeeee; } */
+
+/* keys on 'click' */
+.highlight { 
     background-color: cornflowerblue;
     color: white;
     transition: background-color 0.12s, color 0.12s;
 }
 
-#keyboard-container-2 .highlight { /* keys on click */
+/* keys on 'click' */
+#keyboard-container-2 .highlight { 
     background-color: #4CAF50;
-    color: white;
-    transition: background-color 0.12s, color 0.12s;
 }
 
 /*fixing keys*/

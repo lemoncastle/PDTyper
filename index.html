@@ -7,28 +7,56 @@
     <link rel="icon" href="./data/keeb.png" type="image/png">
     <link rel="stylesheet" href="keyboard.css">
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
-    <h1>How does Parkinson's Medication Affect Typing Behavior?</h1>
-    <!-- <label for="time-of-day-select">Select Time of Day:</label> -->
-    <!-- <select id="time-of-day-select">
-        <option value="morning">Morning</option>
-        <option value="afternoon">Afternoon</option>
-        <option value="evening">Evening</option>
-    </select> -->
-    <p class="subtext"><i>Parkinson's medication aims to suppress involuntary movement, but how does that affect tasks that require fine motor skills like typing? Try the visualization to find out!</i></p>
-    <p><u>Instructions:</u>      Click the start button for a default phrase, or enter a phrase of your own below.</p>
-    <input type="text" id="phrase-input" placeholder="Enter a phrase...">
+
+<div class="container">
+    <section class="intro">
+        <div class="content">
+            <h1>How does Parkinson's Medication Affect Typing Behavior?</h1>
+            <p class="subtitle">Parkinson's medication aims to suppress involuntary movement, 
+                but how does that affect tasks that require fine motor skills like typing? Try the visualization to find out!</p>
+            <div class="button-button">
+                <a href="https://github.com/chriss-mo/typer" target="_blank" class="btn1">Demo</a>
+                <a href="https://github.com/chriss-mo/typer" target="_blank" class="btn2">Write Up</a>
+            </div>
+        </div>
+        <div class="imagee">
+            <img src="./data/frog.jpg" alt="frog">
+        </div>
+    </section>
+
+    <div class="people">
+        <p>DSC106 Project By: <a href="https://github.com/chriss-mo" target="_blank">Chris Mo</a>,
+            <a href="https://github.com/ZachUCSD" target="_blank">Zachary Thomason</a>,
+            <a href="https://github.com/lemoncastle" target="_blank">Adams Yang</a></p>
+    </div>
+
+    <section class="left-right">
+        <div class="stats-section">
+            <p>Settings the stage Statistics</p>
+            <p>Stats about parkinsons?</p>
+            <p>Stat 3: Value</p>
+            <p>Some more information</p>
+            <p>Maybe more?</p>
+        </div>
+        
+        <div class="visual-section">
+            <p> A nice visualization goes here</p>
+            <img src="./data/frog.jpg" alt="frog" style="height: 300px; width: 400px;">
+        </div>
+    </section>
+
+
+    <p id="space"><u>Instructions:</u> Enter a phrase!</p>
+    <input type="text" id="phrase-input" placeholder="Enter a phrase... (100 characters)"maxlength="100">
     <div class="button-container">
         <button id="animate-button">Begin Animation</button>
         <button id="stop-button">Stop Animation</button>
     </div>
     <div id="text">
-        <!-- <h2 id="heading1">Unmedicated Typing</h2>
-        <h2 id="heading1">Medicated Typing</h2> -->
-        <p id="kitten1">unmedicated typing output</p>
-        <p id="kitten2">medicated typing output</p>
+        <p id="kitten1" style="color: gray;">Unmedicated</p>
+        <p id="kitten2" style="color: gray;">Medicated</p>
     </div>
     
     <div class="keyboard-wrapper">
@@ -39,14 +67,34 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="keyboard.js"></script>
 
-    <div id = "progress">
-        <div id="progress-container-1">
-            <div id="progress-bar1"></div>
+    <div id="progress">
+        <div class="progress-container">
+            <div class="progress-info-box">
+                <span class="progress-text">Unmedicated:</span>
+                <div id="timer1">0 ms</div>
+            </div>
+            <div class="progress-bar-wrapper">
+                <div id="progress-bar1"></div>
+            </div>
         </div>
-        <div id="progress-container-2">
-            <div id="progress-bar2"></div>
+    
+        <div class="progress-container">
+            <div class="progress-info-box">
+                <span class="progress-text">Medicated:</span>
+                <div id="timer2">0 ms</div>
+            </div>
+            <div class="progress-bar-wrapper">
+                <div id="progress-bar2"></div>
+            </div>
         </div>
     </div>
-    <a href="https://codepen.io/irajsuhail/pen/mYMZVm">CSS keyboard</a>
+    <!-- <a href="https://codepen.io/irajsuhail/pen/mYMZVm">CSS keyboard</a> -->
+
+    <p>More information goes here!</p>
+    <p>Third visualization/explanation goes here!!!</p>
+    <p>dam these people are so critical <a href="https://www.reddit.com/r/Parkinsons/comments/jtewfu/diagnosing_parkinsons_disease_from_a_persons/" target="_blank">reddit</a></p>
+    <img src="./data/GjQekQXbIAAhWDg.jpg" alt="shocked" style="height: 300px; width: auto;">
+    <p>me rn</p>
+</div>
 </body>
 </html>

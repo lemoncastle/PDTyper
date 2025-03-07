@@ -2,7 +2,7 @@
 let isAnimating1 = false;
 let isAnimating2 = false;
 let data;
-const phrase = "the quick brown fox jumps over the lazy dog";
+const defaultPhrase = "the quick brown fox jumps over the lazy dog";
 
 async function readCSV(filePath) {
     const response = await fetch(filePath);
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     generateKeyboard('keyboard-container-2');
 
     document.getElementById('animate-button').addEventListener('click', () => {
-        const phrase = document.getElementById('phrase-input').value || "the quick brown fox jumps over the lazy dog";
+        let phrase = document.getElementById('phrase-input').value || defaultPhrase;
         animateKeyboard(phrase, 'keyboard-container-1',100,100);
         animateKeyboard(phrase, 'keyboard-container-2',100,159);
     });
@@ -39,7 +39,7 @@ function scaleKeyboards() {
     });
 
     // Dynamically adjust the gap based on screen width
-    const baseGap = 1200; // Original gap value
+    const baseGap = 1150; // Original gap value
     wrapper.style.gap = `${baseGap * scaleFactor}px`;
 }
 
@@ -91,9 +91,9 @@ function generateKeyboard(containerId) {
         } else {
             keyDiv.textContent = key;
         }
-        keyDiv.addEventListener('click', () => {
-            keyDiv.classList.toggle('highlight');
-        });
+        // keyDiv.addEventListener('click', () => {
+        //     keyDiv.classList.toggle('highlight');
+        // });
         keyboardBase.appendChild(keyDiv);
     });
 
@@ -112,6 +112,7 @@ function animateKeyboard(phrase, containerId, holdTime, flightTime) {
 
     let index = 0;
     let stopAnimation = false;
+    const startTime = Date.now(); // Start time of the animation
     
     const outputElement1 = document.getElementById('kitten1');
     const outputElement2 = document.getElementById('kitten2');
@@ -119,13 +120,18 @@ function animateKeyboard(phrase, containerId, holdTime, flightTime) {
     const progressBar1 = document.getElementById('progress-bar1');
     const progressBar2 = document.getElementById('progress-bar2');
 
+    const timerElement1 = document.getElementById('timer1');
+    const timerElement2 = document.getElementById('timer2');
+
     //clear elements
     if (containerId === 'keyboard-container-1') {
         outputElement1.textContent = '';
         progressBar1.style.width = '0%';
+        timerElement1.textContent = '0 ms';
     } else {
         outputElement2.textContent = '';
         progressBar2.style.width = '0%';
+        timerElement2.textContent = '0 ms';
     }
 
     function highlightNextKey() {
@@ -155,14 +161,25 @@ function animateKeyboard(phrase, containerId, holdTime, flightTime) {
         });
         if (containerId === 'keyboard-container-1') {
             outputElement1.textContent += phrase[index];
+            outputElement1.style.color = '#454545';
             progressBar1.style.width = ((index + 1) / phrase.length) * 100 + '%'; // Update progress bar 1
+            timerElement1.textContent = `${Date.now() - startTime} ms`; // Update timer 1
         } else {
             outputElement2.textContent += phrase[index];
+            outputElement2.style.color = '#454545';
             progressBar2.style.width = ((index + 1) / phrase.length) * 100 + '%'; // Update progress bar 2
+            timerElement2.textContent = `${Date.now() - startTime} ms`; // Update timer 2
         }
+
+        if(progressBar1.style.width === '100%') {
+            outputElement1.style.color = 'cornflowerblue';
+        }
+        if(progressBar2.style.width === '100%') {
+            outputElement2.style.color = '#4CAF50';
+        }
+        
         index++;
     }
-
     highlightNextKey();
 
     // stop button
@@ -170,8 +187,10 @@ function animateKeyboard(phrase, containerId, holdTime, flightTime) {
         stopAnimation = true;
         if (containerId === 'keyboard-container-1') {
             isAnimating1 = false;
+            outputElement1.style.color = 'gray';
         } else {
             isAnimating2 = false;
+            outputElement2.style.color = 'gray';
         }
     });
 }
