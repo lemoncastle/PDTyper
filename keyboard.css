@@ -19,8 +19,9 @@
     grid-template-columns: repeat(30, 30px);
     grid-template-rows: repeat(5, 60px);
     grid-gap: 5px;
-    border: 1px solid #456;
 }
+#keyboard-container-1 .keyboard-base { border: 3px solid cornflowerblue; }
+#keyboard-container-2 .keyboard-base { border: 3px solid #4CAF50; }
 
 .keyboard-container {
     transform: scale(0.4);

@@ -2,7 +2,7 @@
 let isAnimating1 = false;
 let isAnimating2 = false;
 let data;
-const phrase = "the quick brown fox jumps over the lazy dog";
+const defaultPhrase = "the quick brown fox jumps over the lazy dog";
 
 async function readCSV(filePath) {
     const response = await fetch(filePath);
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     generateKeyboard('keyboard-container-2');
 
     document.getElementById('animate-button').addEventListener('click', () => {
-        const phrase = document.getElementById('phrase-input').value || "the quick brown fox jumps over the lazy dog";
+        let phrase = document.getElementById('phrase-input').value || defaultPhrase;
         animateKeyboard(phrase, 'keyboard-container-1',100,100);
         animateKeyboard(phrase, 'keyboard-container-2',100,159);
     });
