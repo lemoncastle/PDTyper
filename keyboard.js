@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('animate-button').addEventListener('click', () => {
         let phrase = document.getElementById('phrase-input').value || defaultPhrase;
-        animateKeyboard(phrase, 'keyboard-container-1',100,100);
-        animateKeyboard(phrase, 'keyboard-container-2',100,159);
+        animateKeyboard(phrase, 'keyboard-container-1',102,171);
+        animateKeyboard(phrase, 'keyboard-container-2',128,211);
     });
 });
 

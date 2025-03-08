@@ -7,10 +7,12 @@
     <link rel="icon" href="./data/keeb.png" type="image/png">
     <link rel="stylesheet" href="keyboard.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="global.js"></script>
 </head>
 <body>
+<div id="c"><div id="container">
 
-<div class="container">
     <section class="intro">
         <div class="content">
             <h1>How does Parkinson's Medication Affect Typing Behavior?</h1>
@@ -25,7 +27,7 @@
             <img src="./data/frog.jpg" alt="frog">
         </div>
     </section>
-
+    
     <div class="people">
         <p>DSC106 Project By: <a href="https://github.com/chriss-mo" target="_blank">Chris Mo</a>,
             <a href="https://github.com/ZachUCSD" target="_blank">Zachary Thomason</a>,
@@ -47,54 +49,69 @@
         </div>
     </section>
 
+    <section class = "keyboard">
+        <p id="space"><u>Instructions:</u> Enter a phrase!</p>
+        <input type="text" id="phrase-input" placeholder="Enter a phrase... (100 characters)"maxlength="100">
+        
+        <div class="button-container">
+            <button id="animate-button">Begin Animation</button>
+            <button id="stop-button">Stop Animation</button>
+        </div>
+        
+        <div id="text">
+            <p id="kitten1" style="color: gray;">Unmedicated</p>
+            <p id="kitten2" style="color: gray;">Medicated</p>
+        </div>
+        
+        <div class="keyboard-wrapper">
+            <div id="keyboard-container-1" class="keyboard-container"></div>
+            <div id="keyboard-container-2" class="keyboard-container"></div>
+        </div>
+        
+        <script src="keyboard.js"></script>
 
-    <p id="space"><u>Instructions:</u> Enter a phrase!</p>
-    <input type="text" id="phrase-input" placeholder="Enter a phrase... (100 characters)"maxlength="100">
-    <div class="button-container">
-        <button id="animate-button">Begin Animation</button>
-        <button id="stop-button">Stop Animation</button>
-    </div>
-    <div id="text">
-        <p id="kitten1" style="color: gray;">Unmedicated</p>
-        <p id="kitten2" style="color: gray;">Medicated</p>
-    </div>
-    
-    <div class="keyboard-wrapper">
-        <div id="keyboard-container-1" class="keyboard-container"></div>
-        <div id="keyboard-container-2" class="keyboard-container"></div>
-    </div>
-    
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="keyboard.js"></script>
-
-    <div id="progress">
-        <div class="progress-container">
-            <div class="progress-info-box">
-                <span class="progress-text">Unmedicated:</span>
-                <div id="timer1">0 ms</div>
+        <div id="progress">
+            <div class="progress-container">
+                <div class="progress-info-box">
+                    <span class="progress-text">Unmedicated:</span>
+                    <div id="timer1">0 ms</div>
+                </div>
+                <div class="progress-bar-wrapper">
+                    <div id="progress-bar1"></div>
+                </div>
             </div>
-            <div class="progress-bar-wrapper">
-                <div id="progress-bar1"></div>
+        
+            <div class="progress-container">
+                <div class="progress-info-box">
+                    <span class="progress-text">Medicated:</span>
+                    <div id="timer2">0 ms</div>
+                </div>
+                <div class="progress-bar-wrapper">
+                    <div id="progress-bar2"></div>
+                </div>
             </div>
         </div>
-    
-        <div class="progress-container">
-            <div class="progress-info-box">
-                <span class="progress-text">Medicated:</span>
-                <div id="timer2">0 ms</div>
-            </div>
-            <div class="progress-bar-wrapper">
-                <div id="progress-bar2"></div>
-            </div>
-        </div>
-    </div>
-    <!-- <a href="https://codepen.io/irajsuhail/pen/mYMZVm">CSS keyboard</a> -->
+    </section>
 
-    <p>More information goes here!</p>
-    <p>Third visualization/explanation goes here!!!</p>
-    <p>dam these people are so critical <a href="https://www.reddit.com/r/Parkinsons/comments/jtewfu/diagnosing_parkinsons_disease_from_a_persons/" target="_blank">reddit</a></p>
-    <img src="./data/GjQekQXbIAAhWDg.jpg" alt="shocked" style="height: 300px; width: auto;">
-    <p>me rn</p>
-</div>
+    <section class="moreinfo">
+        <p>More information goes here!</p>
+        <p>Third visualization/explanation goes here!!!</p>
+        <p>dam these people are so critical <a href="https://www.reddit.com/r/Parkinsons/comments/jtewfu/diagnosing_parkinsons_disease_from_a_persons/" target="_blank">reddit</a></p>
+        <img src="./data/GjQekQXbIAAhWDg.jpg" alt="shocked" style="height: 200px; width: auto;">
+        <p>me rn</p>
+    </section>
+
+    <section class="conclusion">
+        <h2>References</h2>
+        <ul>
+            <li><a href="https://codepen.io/irajsuhail/pen/mYMZVm">CSS keyboard</a></li>
+            <li><a href="https://www.w3schools.com/CSSref/css_pr_scroll-snap-align.php" target="_blank">scroll-snap-align</a></li>
+            <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10000000/" target="_blank">Article 3</a></li>
+            <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10000000/" target="_blank">Article 4</a></li>
+            <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10000000/" target="_blank">Article 5</a></li>
+        </ul>
+    </section>
+
+</div></div>
 </body>
 </html>

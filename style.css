@@ -16,12 +16,22 @@ body {
 a { color: #07a; }
 a:visited { color: #07a; }
 
-/*container (wraps everything*/
-.container {
+/*The REAL container that wraps everything*/
+#c {
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth; /* Enables smooth snapping */
+    height: 100vh; 
+}
+/*container (wraps everything)*/
+#container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
 }
+
+section { scroll-snap-align: center; }
+
 
 /* =============== */
 /*header section*/
@@ -249,3 +259,9 @@ h1 {
 
 #progress-bar1 { background-color: cornflowerblue; }
 #progress-bar2 { background-color: #4CAF50; }
+
+
+/*
+https://www.w3schools.com/CSSref/css_pr_scroll-snap-align.php
+*/
+
