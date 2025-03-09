@@ -12,6 +12,7 @@ body {
     font-family: Open Sans, 'Times New Roman', Times, serif;
     color: #454545;
     line-height: 1.6;
+    font-size: 16px;
 }
 a { color: #07a; }
 a:visited { color: #07a; }
@@ -22,6 +23,7 @@ a:visited { color: #07a; }
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth; /* Enables smooth snapping */
     height: 100vh; 
+    font-size: 16px;
 }
 /*container (wraps everything)*/
 #container {
@@ -53,7 +55,7 @@ h1 {
     font-size: 18px;
     margin-bottom: 20px;
     max-width: 550px;
-    color: #555;
+    color: gray;
 }
 
 /* Buttons Intro */
@@ -68,14 +70,22 @@ h1 {
 }
 
 .button-button .btn1 {
-    background-color: #006fe6;
+    background-color: cornflowerblue;
     color: var(--white);
+}
+.button-button .btn1:hover {
+    background-color: #45a049;
 }
 
 .button-button .btn2 {
     background-color: transparent;
     color: var(--black);
     border: 1px solid var(--black);
+}
+.button-button .btn2:hover {
+    background-color:  #45a049;
+    color: var(--white);
+    border: 1px solid #45a049;
 }
 
 /*Image intro*/
@@ -98,7 +108,8 @@ h1 {
     border: 1px solid var(--black);
     border-radius: 20px;
     padding: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
+    font-size: 18px;
 }
 
 /* =============== */
@@ -114,7 +125,7 @@ h1 {
 /* Stats Section */
 .stats-section {
     width: 400px;
-    height: 350px;
+    height: 400px;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -126,7 +137,7 @@ h1 {
 /* Visualization Section */
 .visual-section {
     width: 600px;
-    height: 350px;
+    height: 400px;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -135,22 +146,25 @@ h1 {
     border-radius: 20px;
 }
 
+/* magical line of code that fixes all my problems*/
+/* http://www.d3noob.org/2013/01/adding-grid-lines-to-d3js-graph.html */
+.grid path { stroke-width: 0; }
+
 /* =============== */
-/*keyboard text output*/
+/*text input*/
 /* =============== */
-#text {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
-    margin-bottom: -30px;
-    gap: 100px;
-    padding: 20px;
-} #text p {
-    display: block;
-    margin-bottom: 10px;
-} #kitten1, #kitten2 {
-    padding: 10px 10px;
-    border: 1px solid #454545;
+.text-input p{
+    font-size: 18px;
+}
+#phrase-input {
+    width: 95%;
+    padding: 12px 20px;
     border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: var(--black);
+    border: 1px solid var(--black);
 }
 
 /* =============== */
@@ -183,14 +197,23 @@ h1 {
 }
 
 /* =============== */
-/*text input*/
+/*keyboard text output*/
 /* =============== */
-#phrase-input {
-    width: 95%;
-    padding: 12px 20px;
+#text {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+    margin-bottom: -30px;
+    gap: 100px;
+    padding: 20px;
+} #text p {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    word-wrap: break-word;
+} #kitten1, #kitten2 {
+    padding: 10px 10px;
+    border: 1px solid #454545;
     border-radius: 5px;
-    margin-top: 5px;
-    margin-bottom: 20px;
 }
 
 /* =============== */
@@ -208,7 +231,6 @@ h1 {
     width: 70%;
     display: flex;
     align-items: center;
-    /* background-color: #f3f3f3; */
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     margin-top: 20px;
@@ -225,20 +247,18 @@ h1 {
     background: #fff;
     padding: 10px;
     border-radius: 10px;
-    /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); */
 }
 
 .progress-text {
-    font-size: 16px;
+    font-size: 18px;
     color: #454545;
     font-weight: bold;
 }
 
 #timer1, #timer2 {
-    font-size: 14px;
+    font-size: 18px;
     color: #454545;
     padding: 5px 10px;
-    /* There was a box here*/
 }
 
 .progress-bar-wrapper {
@@ -260,8 +280,24 @@ h1 {
 #progress-bar1 { background-color: cornflowerblue; }
 #progress-bar2 { background-color: #4CAF50; }
 
+/* =============== */
+/*three*/
+/* =============== */
+.three {
+    padding: 20px;
+    border: 1px solid #454545;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
 
-/*
-https://www.w3schools.com/CSSref/css_pr_scroll-snap-align.php
-*/
 
+
+/* =============== */
+/*conclusion*/
+/* =============== */
+h2 { margin: 0; }
+.conclusion {
+    border: 1px solid #454545;
+    border-radius: 5px;
+    padding: 20px;
+}

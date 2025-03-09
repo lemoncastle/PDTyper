@@ -37,6 +37,7 @@
 
     <section class="left-right">
         <div class="stats-section">
+            <h2>Parkinsons Statistics</h2>
             <li>10 million people worldwide have parkinsons <a href="https://www.parkinson.org/understanding-parkinsons/statistics" target="_blank">[1]</a></li> 
             <li>60,000 Americans are diagnosed with Parkinson’s each year <a href="https://www.parkinson.org/understanding-parkinsons/statistics" target="_blank">[2]</a></li> 
             <li>Early symptoms can include slower typing speed, increased typing errors, and irregular keystroke intervals.</li>
@@ -44,13 +45,18 @@
             <li>Average latency difference of 13.2ms</li>
         </div>
         
-        <div class="visual-section"></div>
+        <div class="visual-section">
+            <h2>Medication Distribution</h2>
+        </div>
         <script src="bar.js"></script>
     </section>
 
     <section class = "keyboard">
-        <p id="space"><u>Instructions:</u> Enter a phrase!</p>
-        <input type="text" id="phrase-input" placeholder="Enter a phrase... (100 characters)"maxlength="100">
+        
+        <div class="text-input">
+            <p id="space"><u>Instructions:</u> Enter a phrase to compare typing results of medicated vs unmedicated users!</p>
+            <input type="text" id="phrase-input" placeholder="Enter a phrase... (75 characters)"maxlength="75">
+        </div>
         
         <div class="button-container">
             <button id="animate-button">Begin Animation</button>
@@ -92,15 +98,43 @@
         </div>
     </section>
 
-    <section class="moreinfo">
-        <h2>WHYYYYY</h2>
-        <p>Third visualization/explanation goes here!!!</p>
-        <p>dam these people are so critical <a href="https://www.reddit.com/r/Parkinsons/comments/jtewfu/diagnosing_parkinsons_disease_from_a_persons/" target="_blank">reddit</a></p>
+    <section class="three">
+        <h2>What happened?</h2>
+        <p>People on medication type slower than not on medication? why?</p>
+
+        <li>Parkinson's disease is a progressive neurological disorder that affects movement. 
+            It is caused by the degeneration of dopamine-producing neurons in the brain, which leads to a decrease in dopamine levels. 
+            This can result in a range of symptoms, including tremors, stiffness, and difficulty with balance and coordination.</li>
+        <li>Parkinson's medication, such as levodopa, is used to increase dopamine levels in the brain and improve motor function.</li>
+        <li>However, these medications can also have side effects, including dyskinesia, which is characterized by involuntary movements and muscle spasms. 
+            Dyskinesia can affect fine motor skills, such as typing, and may lead to slower typing speeds and increased errors.</li>
+        <li>In addition, Parkinson's medication can also affect cognitive function, which can further impact typing performance.
+            For example, some people may experience difficulty with attention and concentration, which can make it harder to focus on typing tasks.</li>
+        <li>Overall, while Parkinson's medication can improve motor function and reduce symptoms of the disease, it can also have side effects that affect typing performance.
+            It is important for people with Parkinson's to work closely with their healthcare providers to find the right balance between medication and symptom management.</li>
+        <li>In conclusion, Parkinson's medication can have both positive and negative effects on typing performance.
+            While it can improve motor function and reduce symptoms of the disease, it can also lead to slower typing speeds and increased errors due to side effects such as dyskinesia and cognitive impairment.</li>
         <img src="./data/GjQekQXbIAAhWDg.jpg" alt="shocked" style="height: 200px; width: auto;">
         <p>me rn</p>
     </section>
 
     <section class="conclusion">
+        <h2>Contributions:</h2>
+        <ul>
+            <li>
+                <strong>Chris Mo:</strong> 
+                Data Preprocessing/Cleaning and Visualizations.
+            </li>
+            <li>
+                <strong>Zachary Thomason:</strong> 
+                Project ReadMe, Annotations and Style. 
+            </li>
+            <li>
+                <strong>Adams Yang:</strong> 
+                Data Processing, D3 Visualizations.
+            </li>
+        </ul>    
+        
         <h2>References</h2>
         <ul>
             <li><a href="https://codepen.io/irajsuhail/pen/mYMZVm">CSS keyboard</a></li>
@@ -110,7 +144,8 @@
             <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10000000/" target="_blank">Article 5</a></li>
         </ul>
     </section>
-
+    
+    <p>Made with ❤️ by Chris, Zach, and Adams</p>
 </div></div>
 </body>
 </html>

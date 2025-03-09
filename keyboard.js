@@ -3,6 +3,7 @@ let isAnimating1 = false;
 let isAnimating2 = false;
 let data;
 const defaultPhrase = "the quick brown fox jumps over the lazy dog";
+const phraseInput = document.getElementById('phrase-input');
 
 async function readCSV(filePath) {
     const response = await fetch(filePath);
@@ -17,9 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
     generateKeyboard('keyboard-container-2');
 
     document.getElementById('animate-button').addEventListener('click', () => {
-        let phrase = document.getElementById('phrase-input').value || defaultPhrase;
+        let phrase = phraseInput.value || defaultPhrase;
+        phraseInput.disabled = true;
+
         animateKeyboard(phrase, 'keyboard-container-1',102,171);
         animateKeyboard(phrase, 'keyboard-container-2',128,211);
+
+        // phraseInput.disabled = false;       
     });
 });
 
@@ -176,6 +181,7 @@ function animateKeyboard(phrase, containerId, holdTime, flightTime) {
         }
         if(progressBar2.style.width === '100%') {
             outputElement2.style.color = '#4CAF50';
+            phraseInput.disabled = false;
         }
         
         index++;
@@ -191,6 +197,7 @@ function animateKeyboard(phrase, containerId, holdTime, flightTime) {
         } else {
             isAnimating2 = false;
             outputElement2.style.color = 'gray';
+            phraseInput.disabled = false;
         }
     });
 }
