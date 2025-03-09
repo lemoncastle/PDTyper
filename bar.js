@@ -1,6 +1,6 @@
 // Data for the bar chart
 const dataa = [
-    { category: 'Levadopa', count: 107 },
+    { category: 'Levodopa', count: 107 },
     { category: 'DA', count: 31 },
     { category: 'MAOB', count: 14 },
     { category: 'Other', count: 67 },
