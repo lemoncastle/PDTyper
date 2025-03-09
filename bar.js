@@ -12,9 +12,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function createbar(data) {
-    const margin = { top: 20, right: 30, bottom: 40, left: 40 };
+    // Define margins and dimensions to fit within 600x350px
+    const margin = { top: 20, right: 30, bottom: 50, left: 50 };
     const width = 550 - margin.left - margin.right;
-    const height = 300 - margin.top - margin.bottom;
+    const height = 350 - margin.top - margin.bottom;
 
     // Create the SVG container
     const svg = d3.select('.visual-section')
@@ -28,7 +29,7 @@ function createbar(data) {
     const x = d3.scaleBand()
         .domain(data.map(d => d.category))
         .range([0, width])
-        .padding(0.1);
+        .padding(0.2); // Increased padding for better spacing
 
     const y = d3.scaleLinear()
         .domain([0, d3.max(data, d => d.count)])
@@ -46,10 +47,10 @@ function createbar(data) {
         .attr('width', x.bandwidth())
         .attr('height', d => height - y(d.count))
         .attr('fill', 'cornflowerblue')
-        .on('mouseover', function(d) {
+        .on('mouseover', function() {
             d3.select(this).style('fill', '#45a049');
         })
-        .on('mouseout', function(d) {
+        .on('mouseout', function() {
             d3.select(this).style('fill', 'cornflowerblue');
         });
 
@@ -57,7 +58,9 @@ function createbar(data) {
     svg.append('g')
         .attr('class', 'x-axis')
         .attr('transform', `translate(0,${height})`)
-        .call(d3.axisBottom(x));
+        .call(d3.axisBottom(x))
+        .selectAll('text')  // Rotate text for better visibility
+        .style('text-anchor', 'middle');
 
     // Add the y-axis
     svg.append('g')
@@ -66,18 +69,12 @@ function createbar(data) {
 
     // Add axis labels
     svg.append('text')
-        .attr('class', 'x-axis-label')
-        .attr('text-anchor', 'end')
-        .attr('x', width /2 + margin.left)
-        .attr('y', height + margin.bottom - 10)
-        .text('Medication Type');
-
-    svg.append('text')
         .attr('class', 'y-axis-label')
-        .attr('text-anchor', 'end')
-        .attr('x', -height/2)
-        .attr('y', -margin.left)
+        .attr('text-anchor', 'middle')  // Centered alignment
+        .attr('x', -height / 2)
+        .attr('y', -margin.left + 5)  // Adjusted for better spacing
         .attr('dy', '.75em')
         .attr('transform', 'rotate(-90)')
-        .text('Count');
+        .text('Count')
+        .style('font-size', '14px'); // Change the font size to 12px
 }
