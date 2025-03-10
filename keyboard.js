@@ -99,9 +99,6 @@ function generateKeyboard(containerId) {
         } else {
             keyDiv.textContent = key;
         }
-        // keyDiv.addEventListener('click', () => {
-        //     keyDiv.classList.toggle('highlight');
-        // });
         keyboardBase.appendChild(keyDiv);
     });
 
@@ -137,12 +134,14 @@ function animateKeyboard(phrase, containerId, holdTime, flightTime) {
         outputElement1.textContent = '';
         progressBar1.style.width = '0%';
         timerElement1.textContent = '0 ms';
-        difference.textContent = '0 ms';
+        difference.style.opacity = "0";
+        difference.textContent = '+';
     } else {
         outputElement2.textContent = '';
         progressBar2.style.width = '0%';
         timerElement2.textContent = '0 ms';
-        difference.textContent = '0 ms';
+        difference.style.opacity = "0";
+        difference.textContent = '+';
     }
 
     function highlightNextKey() {
@@ -216,7 +215,8 @@ function animateKeyboard(phrase, containerId, holdTime, flightTime) {
 
 function updateDifference() {
     const interval = setInterval(() => {
-        difference.textContent = `${Math.abs(time1 - time2)} ms`;
+        difference.style.opacity = "1";
+        difference.textContent = `+ ${Math.abs(time1 - time2)} ms`;
         difference.style.color = 'red';
         
         // Stop updating when both are finished

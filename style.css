@@ -38,7 +38,7 @@ section { scroll-snap-align: center; }
 /* =============== */
 /*header section*/
 /* =============== */
-.intro {
+.title {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -115,10 +115,11 @@ h1 {
 /* =============== */
 /*stat-visualization section*/
 /* =============== */
-.left-right {
+.w {
     display: flex;
-    gap: 3rem;
+    gap: 2rem;
     margin: 5rem 0;
+    margin-top: 20px;
     flex-wrap: wrap;
 }
 
@@ -199,13 +200,13 @@ h1 {
 /* =============== */
 /*keyboard text output*/
 /* =============== */
-#text {
+#text-output {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
     margin-bottom: -30px;
     gap: 100px;
     padding: 20px;
-} #text p {
+} #text-output p {
     display: block;
     margin-bottom: 10px;
     font-size: 16px;
@@ -223,7 +224,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 5px;
     margin-bottom: 30px;
 }
 
@@ -281,16 +282,40 @@ h1 {
 #progress-bar2 { background-color: #4CAF50; }
 
 /* =============== */
-/*three*/
+/* Difference Section */
 /* =============== */
-.three {
+
+#difference {
+    color: #d9534f;
+    font-size: 18px;
+    opacity: 0;  /* Start not visible */
+    transition: opacity 0.15s ease-in;
+}
+
+/* =============== */
+/*explanation section*/
+/* =============== */
+.explanation {
     padding: 20px;
     border: 1px solid #454545;
     border-radius: 5px;
     margin-bottom: 20px;
+    width: 60%;
 }
-
-
+.explanation h2 {
+    font-size: 28px;
+}
+.sub {
+    font-weight: bold;
+}
+.explanation p {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.explanation li {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
 
 /* =============== */
 /*conclusion*/
@@ -300,4 +325,5 @@ h2 { margin: 0; }
     border: 1px solid #454545;
     border-radius: 5px;
     padding: 20px;
+    width:60%;
 }

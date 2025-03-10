@@ -12,7 +12,7 @@
 <body>
 <div id="c"><div id="container">
 
-    <section class="intro">
+    <section class="title">
         <div class="content">
             <h1>How does Parkinson's Medication Affect Typing Behavior?</h1>
             <p class="subtitle">Parkinson's medication aims to suppress involuntary movement, 
@@ -34,25 +34,30 @@
             <a href="https://github.com/ZachUCSD" target="_blank">Zachary Thomason</a>,
             <a href="https://github.com/lemoncastle" target="_blank">Adams Yang</a></p>
     </div>
+    
+    <section class="stat-visual">
+        <h2>Typing – An Early Predictor for Parkinson’s?</h2>
+        <p class="subtitle">Can subtle changes in typing speed and accuracy help detect Parkinson’s before diagnosis?</p>
+    
+        <div class="w">
+            <div class="stats-section">
+                <h2>Parkinson’s at a Glance</h2>
+                <li><b>10 million</b> people worldwide have Parkinson’s <a href="https://www.parkinson.org/understanding-parkinsons/statistics" target="_blank">[1]</a></li> 
+                <li><b>60,000</b> Americans are diagnosed each year <a href="https://www.parkinson.org/understanding-parkinsons/statistics" target="_blank">[2]</a></li> 
+                <li>Early symptoms include <b>slower typing speed, increased errors, and irregular keystroke intervals</b>.</li>
+                <li>Research suggests <b>typing patterns can predict Parkinson’s years before diagnosis</b>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5708704/" target="_blank">[3]</a></li> 
+                <li>We found an average keystroke latency difference of <b>13.2ms</b> Parkinson’s patients.</li>
+            </div>
 
-    <section class="left-right">
-        <div class="stats-section">
-            <h2>Parkinsons Statistics</h2>
-            <li>10 million people worldwide have parkinsons <a href="https://www.parkinson.org/understanding-parkinsons/statistics" target="_blank">[1]</a></li> 
-            <li>60,000 Americans are diagnosed with Parkinson’s each year <a href="https://www.parkinson.org/understanding-parkinsons/statistics" target="_blank">[2]</a></li> 
-            <li>Early symptoms can include slower typing speed, increased typing errors, and irregular keystroke intervals.</li>
-            <li>Typing can predict Parkinson’s years before diagnosis. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5708704/" target="_blank">[3]</a></li> 
-            <li>Average latency difference of 13.2ms</li>
+            <div class="visual-section">
+                <h2>Medication & Its Role</h2>
+                <p>Different medications are prescribed based on Parkinson’s progression. The distribution below shows how treatment varies among patients.</p>
+                <script src="bar.js"></script>
+            </div>
         </div>
-        
-        <div class="visual-section">
-            <h2>Medication Distribution</h2>
-        </div>
-        <script src="bar.js"></script>
     </section>
 
     <section class = "keyboard">
-        
         <div class="text-input">
             <p id="space"><u>Instructions:</u> Enter a phrase to compare typing results of medicated vs unmedicated users!</p>
             <input type="text" id="phrase-input" placeholder="Enter a phrase... (75 characters)"maxlength="75">
@@ -63,7 +68,7 @@
             <button id="stop-button">Stop Animation</button>
         </div>
         
-        <div id="text">
+        <div id="text-output">
             <p id="kitten1" style="color: gray;">Unmedicated</p>
             <p id="kitten2" style="color: gray;">Medicated</p>
         </div>
@@ -90,34 +95,30 @@
                 <div class="progress-info-box">
                     <span class="progress-text">Medicated:</span>
                     <div id="timer2">0 ms</div>
+                    <div id="difference">+</div>
+
                 </div>
                 <div class="progress-bar-wrapper">
                     <div id="progress-bar2"></div>
                 </div>
             </div>
         </div>
-        <div id="difference-wrapper">
-            <span class="difference>">Difference:</span>
+        <!-- <div id="difference-wrapper">
+            <span class="difference">Difference:</span>
             <div id="difference">0 ms</div>
-        </div>
+        </div> -->
     </section>
 
-    <section class="three">
-        <h2>What happened?</h2>
-        <p>People on medication type slower than not on medication? why?</p>
+    <section class="explanation">
+        <h2>What Happened?</h2>
+        <p class="sub">Why do people on medication type slower?</p>
 
-        <li>Parkinson's disease is a progressive neurological disorder that affects movement. 
-            It is caused by the degeneration of dopamine-producing neurons in the brain, which leads to a decrease in dopamine levels. 
-            This can result in a range of symptoms, including tremors, stiffness, and difficulty with balance and coordination.</li>
-        <li>Parkinson's medication, such as levodopa, is used to increase dopamine levels in the brain and improve motor function.</li>
-        <li>However, these medications can also have side effects, including dyskinesia, which is characterized by involuntary movements and muscle spasms. 
-            Dyskinesia can affect fine motor skills, such as typing, and may lead to slower typing speeds and increased errors.</li>
-        <li>In addition, Parkinson's medication can also affect cognitive function, which can further impact typing performance.
-            For example, some people may experience difficulty with attention and concentration, which can make it harder to focus on typing tasks.</li>
-        <li>Overall, while Parkinson's medication can improve motor function and reduce symptoms of the disease, it can also have side effects that affect typing performance.
-            It is important for people with Parkinson's to work closely with their healthcare providers to find the right balance between medication and symptom management.</li>
-        <li>In conclusion, Parkinson's medication can have both positive and negative effects on typing performance.
-            While it can improve motor function and reduce symptoms of the disease, it can also lead to slower typing speeds and increased errors due to side effects such as dyskinesia and cognitive impairment.</li>
+        <li>Parkinson’s disease affects movement due to low dopamine levels, causing tremors, stiffness, and coordination issues.</li>
+        <li>Medications like levodopa help restore dopamine but can cause <b>dyskinesia</b> (involuntary movements), making fine motor tasks like typing harder.</li>
+        <li>These medications may also affect <b>cognitive function</b>, leading to difficulty with focus and attention, further slowing typing speed.</li>
+        <li>While medication improves motor function, side effects like <b>muscle spasms and cognitive challenges</b> can reduce typing accuracy and speed.</li>
+        <li>Finding the right medication balance is crucial for managing symptoms effectively.</li>
+        <li><b>In short</b>: Medication helps, but side effects can impact fine motor skills like typing.</li>
         <img src="./data/GjQekQXbIAAhWDg.jpg" alt="shocked" style="height: 200px; width: auto;">
         <p>me rn</p>
     </section>

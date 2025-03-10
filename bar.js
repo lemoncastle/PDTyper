@@ -15,7 +15,7 @@ function createbar(data) {
     // Define margins and dimensions to fit within 600x350px
     const margin = { top: 20, right: 50, bottom: 50, left: 40 };
     const width = 590 - margin.left - margin.right;
-    const height = 350 - margin.top - margin.bottom;
+    const height = 300 - margin.top - margin.bottom;
 
     // Create the SVG container
     const svg = d3.select('.visual-section')
