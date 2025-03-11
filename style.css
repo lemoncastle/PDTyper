@@ -125,7 +125,7 @@ h1 {
 
 /* Stats Section */
 .stats-section {
-    width: 400px;
+    width: 450px;
     height: 400px;
     padding: 1rem;
     display: flex;
@@ -153,6 +153,13 @@ h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     border: 1px solid var(--black);
     border-radius: 20px;
+}
+
+.visual-section .a {
+    font-size:15px;
+    margin:0;
+    color: gray;
+    padding-left: 10px;
 }
 
 /* magical line of code that fixes all my problems*/
@@ -334,4 +341,4 @@ h2 { margin: 0; }
     border-radius: 5px;
     padding: 20px;
     width:60%;
-}
+}  
