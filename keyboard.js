@@ -1,8 +1,12 @@
 //global variables
 let isAnimating1 = false;
 let isAnimating2 = false;
+let time1 = 0;
+let time2 = 0;
+
 let data;
 const defaultPhrase = "the quick brown fox jumps over the lazy dog";
+const phraseInput = document.getElementById('phrase-input');
 
 async function readCSV(filePath) {
     const response = await fetch(filePath);
@@ -17,9 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
     generateKeyboard('keyboard-container-2');
 
     document.getElementById('animate-button').addEventListener('click', () => {
-        let phrase = document.getElementById('phrase-input').value || defaultPhrase;
+        let phrase = phraseInput.value || defaultPhrase;
+        phraseInput.disabled = true;
+
         animateKeyboard(phrase, 'keyboard-container-1',102,171);
         animateKeyboard(phrase, 'keyboard-container-2',128,211);
+
+        // phraseInput.disabled = false;       
     });
 });
 
@@ -91,9 +99,6 @@ function generateKeyboard(containerId) {
         } else {
             keyDiv.textContent = key;
         }
-        // keyDiv.addEventListener('click', () => {
-        //     keyDiv.classList.toggle('highlight');
-        // });
         keyboardBase.appendChild(keyDiv);
     });
 
@@ -122,25 +127,35 @@ function animateKeyboard(phrase, containerId, holdTime, flightTime) {
 
     const timerElement1 = document.getElementById('timer1');
     const timerElement2 = document.getElementById('timer2');
+    const difference = document.getElementById('difference');
 
     //clear elements
     if (containerId === 'keyboard-container-1') {
         outputElement1.textContent = '';
         progressBar1.style.width = '0%';
         timerElement1.textContent = '0 ms';
+        difference.style.opacity = "0";
+        difference.textContent = '+';
     } else {
         outputElement2.textContent = '';
         progressBar2.style.width = '0%';
         timerElement2.textContent = '0 ms';
+        difference.style.opacity = "0";
+        difference.textContent = '+';
     }
 
     function highlightNextKey() {
         if (index >= phrase.length || stopAnimation) {
             if (containerId === 'keyboard-container-1') {
                 isAnimating1 = false;
+                finished1 = true;
             } else {
                 isAnimating2 = false;
-            }
+                finished2 = true;
+            } 
+            // update difference when either finished
+            if (!isAnimating1 || !isAnimating2) { updateDifference(); }
+
             return;
         }
 
@@ -163,11 +178,13 @@ function animateKeyboard(phrase, containerId, holdTime, flightTime) {
             outputElement1.textContent += phrase[index];
             outputElement1.style.color = '#454545';
             progressBar1.style.width = ((index + 1) / phrase.length) * 100 + '%'; // Update progress bar 1
+            time1 = Date.now() - startTime;
             timerElement1.textContent = `${Date.now() - startTime} ms`; // Update timer 1
         } else {
             outputElement2.textContent += phrase[index];
             outputElement2.style.color = '#454545';
             progressBar2.style.width = ((index + 1) / phrase.length) * 100 + '%'; // Update progress bar 2
+            time2 = Date.now() - startTime;
             timerElement2.textContent = `${Date.now() - startTime} ms`; // Update timer 2
         }
 
@@ -176,8 +193,8 @@ function animateKeyboard(phrase, containerId, holdTime, flightTime) {
         }
         if(progressBar2.style.width === '100%') {
             outputElement2.style.color = '#4CAF50';
+            phraseInput.disabled = false;
         }
-        
         index++;
     }
     highlightNextKey();
@@ -191,6 +208,18 @@ function animateKeyboard(phrase, containerId, holdTime, flightTime) {
         } else {
             isAnimating2 = false;
             outputElement2.style.color = 'gray';
+            phraseInput.disabled = false;
         }
     });
+}
+
+function updateDifference() {
+    const interval = setInterval(() => {
+        difference.style.opacity = "1";
+        difference.textContent = `+ ${Math.abs(time1 - time2)} ms`;
+        difference.style.color = 'red';
+        
+        // Stop updating when both are finished
+        if (!isAnimating1 && !isAnimating2) { clearInterval(interval); }
+    }, 75); //update every 75ms
 }
