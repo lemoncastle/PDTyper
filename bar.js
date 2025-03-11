@@ -1,8 +1,8 @@
 // Data for the bar chart
 const dataa = [
     { category: 'Levodopa', count: 107 },
-    { category: 'DA', count: 31 },
-    { category: 'MAOB', count: 14 },
+    { category: 'Dopamine Agonist (DA)', count: 31 },
+    { category: 'MAO-B Inhibitor', count: 14 },
     { category: 'Other', count: 67 },
     { category: 'Not Medicated', count: 55 }
 ];
