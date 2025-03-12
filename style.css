@@ -313,10 +313,11 @@ h1 {
 .explanation {
     padding: 20px;
     border: 1px solid #454545;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    width: 60%;
+    border-radius: 10px;
+    margin: 0 auto 20px auto; 
+    width: 70%;
 }
+
 .explanation h2 {
     font-size: 28px;
 }
@@ -324,11 +325,11 @@ h1 {
     font-weight: bold;
 }
 .explanation p {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     font-size: 18px;
 }
 .explanation li {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     font-size: 18px;
 }
 
@@ -340,5 +341,14 @@ h2 { margin: 0; }
     border: 1px solid #454545;
     border-radius: 5px;
     padding: 20px;
-    width:60%;
-}  
+    width:70%;
+    margin: 0 auto 20px auto; 
+    font-size: 17px;
+}
+.conclusion h2 {
+    font-size: 28px;
+}
+.conclusion ul {
+    padding: 5px;
+    margin-left: 5px;
+}

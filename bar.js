@@ -142,30 +142,36 @@ function openCategoryUrl(category) {
     event.stopPropagation();
     if (category === 'Levodopa') {
         newContent = `
-            <h2>Levodopa Information</h2>
-            <li>Levodopa is a common treatment for Parkinson's disease.</li>
-            <li>It helps to replenish the brain's supply of dopamine.</li>
+            <h2>Levodopa (L-DOPA)</h2>
+            <li><b>What it does: </b>Converts into dopamine in the brain, reducing movement symptoms.</li>
+            <li>Improves movement, stiffness, and tremors.</li>
+            <li><b>Side effects: </b>Can cause dyskinesia (involuntary movements) over time.</li>
             <li>For more information, visit <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications/levodopa" target="_blank">this link</a>.</li>
         `;
     } else if (category === 'Dopamine Agonist') {
         newContent = `
-            <h2>Dopamine Agonist Information</h2>
-            <li>Dopamine agonists mimic dopamine in the brain.</li>
-            <li>They are used to treat Parkinson's disease symptoms.</li>
+            <h2>Dopamine Agonist (DA)</h2>
+            <li><b>What it does:</b> Mimic dopamine in the brain without converting into it.</li>
+            <li>Used for early-stage Parkinson’s or as a supplement to Levodopa.</li>
+            <li><b>Examples: </b>Pramipexole, Ropinirole, Rotigotine (Neupro patch).</li>
+            <li><b>Side effects: </b>Sleepiness, impulse control issues (e.g., gambling, overeating).</li>
             <li>For more information, visit <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications/dopamine-antagonists" target="_blank">this link</a>.</li>
         `;
     } else if (category === 'MAO-B') {
         newContent = `
-            <h2>MAO-B Inhibitor Information</h2>
-            <li>MAO-B inhibitors help to prevent the breakdown of dopamine.</li>
-            <li>They are used to treat Parkinson's disease symptoms.</li>
+            <h2>MAO-B Inhibitors (Monoamine Oxidase-B Inhibitors)</h2>
+            <li><b>What it does:</b> Slow the breakdown of dopamine in the brain by blocking the monoamine oxidase-B (MAO-B) enzyme.</li>
+            <li>Used alone in early stages or with other meds later.</li>
+            <li><b>Examples: </b>Selegiline, Rasagiline, Safinamide.</li>
+            <li><b>Side effects: </b>Insomnia, nausea, interactions with antidepressants.</li>
             <li>For more information, visit <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications/mao-b-inhibitors" target="_blank">this link</a>.</li>
         `;
     } else if (category === 'Other' || category === 'Not Medicated') {
         newContent = `
-            <h2>General Parkinson's Information</h2>
-            <li>There are various treatments available for Parkinson's disease.</li>
-            <li>Consult with a healthcare provider for the best treatment options.</li>
+            <h2>Other Medications</h2>
+            <li><b>Anticholinergics</b> – Help with tremors but are rarely used due to cognitive side effects.</li>
+            <li><b>Amantadine</b> – Originally an antiviral drug, it can help with Levodopa-induced dyskinesia.</li>
+            <li><b>COMT Inhibitors</b> – Extend Levodopa’s effects by blocking dopamine breakdown (e.g., Entacapone, Tolcapone).</li>
             <li>For more information, visit <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications" target="_blank">this link</a>.</li>
         `;
     }
