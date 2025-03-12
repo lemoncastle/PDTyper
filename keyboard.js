@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let phrase = phraseInput.value || defaultPhrase;
         phraseInput.disabled = true;
 
-        animateKeyboard(phrase, 'keyboard-container-1',102,171);
-        animateKeyboard(phrase, 'keyboard-container-2',128,211);
+        animateKeyboard(phrase, 'keyboard-container-1',103,166); // old values 102,171
+        animateKeyboard(phrase, 'keyboard-container-2',128,211); // old values 128,211
 
         // phraseInput.disabled = false;       
     });
