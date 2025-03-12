@@ -20,8 +20,15 @@
     grid-template-rows: repeat(5, 60px);
     grid-gap: 5px;
 }
-#keyboard-container-1 .keyboard-base { border: 3px solid cornflowerblue; }
-#keyboard-container-2 .keyboard-base { border: 3px solid #4CAF50; }
+#keyboard-container-1 .keyboard-base { 
+    border: 3px solid black; 
+    background-color: rgba(100, 149, 237, 0.5); /* 50% opacity */
+}
+
+#keyboard-container-2 .keyboard-base { 
+    border: 3px solid black; 
+    background-color: rgba(76, 175, 80, 0.5); /* 50% opacity */
+}
 
 .keyboard-container {
     transform: scale(0.4);
