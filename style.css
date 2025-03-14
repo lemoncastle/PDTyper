@@ -162,6 +162,21 @@ h1 {
     padding-left: 10px;
 }
 
+
+/* =============== */
+/*typing section*/
+/* =============== */
+
+.oreo {
+    display: flex;
+    gap: 2rem;
+    margin: 5rem 0;
+    margin-top: 20px;
+    margin-bottom: 150px;
+    flex-wrap: wrap;
+}
+
+
 /* magical line of code that fixes all my problems*/
 /* http://www.d3noob.org/2013/01/adding-grid-lines-to-d3js-graph.html */
 .grid path { stroke-width: 0; }
@@ -357,7 +372,7 @@ h2 { margin: 0; }
 /*Progress Bar At Top*/
 /* =============== */
 
-#progress-container {
+#page-top-container{
     position: fixed;
     top: 0;
     left: 0;
@@ -367,7 +382,7 @@ h2 { margin: 0; }
     z-index: 1000;
 }
 
-#progress-bar {
+#page-top-progress-bar {
     width: 0;
     height: 100%;
     background-color: cornflowerblue;

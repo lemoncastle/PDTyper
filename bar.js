@@ -142,37 +142,44 @@ function openCategoryUrl(category) {
     event.stopPropagation();
     if (category === 'Levodopa') {
         newContent = `
-            <h2>Levodopa (L-DOPA)</h2>
+            <h2>Levodopa (L-DOPA) <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications/levodopa" target="_blank" style="font-size: 15px;">More Info</a></h2>
             <li><b>What it does: </b>Converts into dopamine in the brain, reducing movement symptoms.</li>
             <li>Improves movement, stiffness, and tremors.</li>
             <li><b>Side effects: </b>Can cause dyskinesia (involuntary movements) over time.</li>
-            <li>For more information, visit <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications/levodopa" target="_blank">this link</a>.</li>
+            <a href="https://www.azmedications.com/wp-content/uploads/2018/09/Levodopa.jpg" target="_blank">
+                <img src="./data/levodopa.jpg" alt="levodopa" style="height: 200px; width: auto;">
+            </a>
         `;
     } else if (category === 'Dopamine Agonist') {
         newContent = `
-            <h2>Dopamine Agonist (DA)</h2>
+            <h2>Dopamine Agonist (DA) <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications/levodopa" target="_blank" style="font-size: 15px;">More Info</a></h2>
             <li><b>What it does:</b> Mimic dopamine in the brain without converting into it.</li>
             <li>Used for early-stage Parkinson’s or as a supplement to Levodopa.</li>
-            <li><b>Examples: </b>Pramipexole, Ropinirole, Rotigotine (Neupro patch).</li>
             <li><b>Side effects: </b>Sleepiness, impulse control issues (e.g., gambling, overeating).</li>
             <li>For more information, visit <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications/dopamine-antagonists" target="_blank">this link</a>.</li>
+            <a href="https://www.invitra.com/en/wp-content/uploads/2019/12/treatment-dopamine-agonists-780x332.png" target="_blank">
+                <img src="./data/DA.png" alt="dopamineagonist" style="height: 150px; width: auto;">
+            </a>
         `;
     } else if (category === 'MAO-B') {
         newContent = `
-            <h2>MAO-B Inhibitors (Monoamine Oxidase-B Inhibitors)</h2>
+            <h2>MAO-B Inhibitors (Monoamine Oxidase-B Inhibitors) <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications/mao-b-inhibitors" target="_blank" style="font-size: 15px;">More Info</a></h2>
             <li><b>What it does:</b> Slow the breakdown of dopamine in the brain by blocking the monoamine oxidase-B (MAO-B) enzyme.</li>
             <li>Used alone in early stages or with other meds later.</li>
-            <li><b>Examples: </b>Selegiline, Rasagiline, Safinamide.</li>
             <li><b>Side effects: </b>Insomnia, nausea, interactions with antidepressants.</li>
-            <li>For more information, visit <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications/mao-b-inhibitors" target="_blank">this link</a>.</li>
+            <a href="https://www.azmedications.com/wp-content/uploads/2018/09/Levodopa.jpg" target="_blank">
+                <img src="https://www.bocsci.com/upload/image/Mechanism-of-Action-of-Monoamine-Oxidase-B-Inhibitor.jpg" alt="MOA-B" style="height: 150px; width: auto;">
+            </a>
         `;
     } else if (category === 'Other' || category === 'Not Medicated') {
         newContent = `
-            <h2>Other Medications</h2>
+            <h2>Other Medications <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications" target="_blank" style="font-size: 15px;">More Info</a></h2>
             <li><b>Anticholinergics</b> – Help with tremors but are rarely used due to cognitive side effects.</li>
             <li><b>Amantadine</b> – Originally an antiviral drug, it can help with Levodopa-induced dyskinesia.</li>
             <li><b>COMT Inhibitors</b> – Extend Levodopa’s effects by blocking dopamine breakdown (e.g., Entacapone, Tolcapone).</li>
-            <li>For more information, visit <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications" target="_blank">this link</a>.</li>
+            <a href="https://www.azmedications.com/wp-content/uploads/2018/09/Levodopa.jpg" target="_blank">
+                <img src="https://www.michaeljfox.org/sites/default/files/styles/featured_xl/public/images/featured/Pills-spilling-out-of-bottle-generic_14.jpg?itok=F-FGoWVP" alt="pills spilling generic" style="height: 150px; width: auto;">
+            </a>
         `;
     }
 
