@@ -156,7 +156,6 @@ function openCategoryUrl(category) {
             <li><b>What it does:</b> Mimic dopamine in the brain without converting into it.</li>
             <li>Used for early-stage Parkinson’s or as a supplement to Levodopa.</li>
             <li><b>Side effects: </b>Sleepiness, impulse control issues (e.g., gambling, overeating).</li>
-            <li>For more information, visit <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications/dopamine-antagonists" target="_blank">this link</a>.</li>
             <a href="https://www.invitra.com/en/wp-content/uploads/2019/12/treatment-dopamine-agonists-780x332.png" target="_blank">
                 <img src="./data/DA.png" alt="dopamineagonist" style="height: 150px; width: auto;">
             </a>
