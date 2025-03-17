@@ -25,9 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         phraseInput.disabled = true;
 
         animateKeyboard(phrase, 'keyboard-container-1',103,166); // old values 102,171
-        animateKeyboard(phrase, 'keyboard-container-2',128,211); // old values 128,211
-
-        // phraseInput.disabled = false;       
+        animateKeyboard(phrase, 'keyboard-container-2',128,211); // old values 128,211    
     });
 });
 
