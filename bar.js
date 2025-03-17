@@ -9,12 +9,11 @@ const dataa = [
 
 const defaultContent = `
     <h2>Parkinson’s at a Glance</h2>
+    <li>Parkinson’s disease affects movement due to low dopamine levels, causing tremors, stiffness, and coordination issues.</li>
     <li><b>10 million</b> people worldwide have Parkinson’s <a href="https://www.parkinson.org/understanding-parkinsons/statistics" target="_blank"><sup>[1]</sup></a></li> 
-    <li><b>60,000</b> Americans are diagnosed each year <a href="https://www.parkinson.org/understanding-parkinsons/statistics" target="_blank"><sup>[3]</sup></a></li> 
+    <li><b>60,000</b> Americans are diagnosed each year <a href="https://www.parkinson.org/understanding-parkinsons/statistics" target="_blank"><sup>[2]</sup></a></li> 
     <li>Early symptoms include <b>slower typing speed, increased errors, and irregular keystroke intervals</b>.</li>
-    <li>Research suggests <b>typing patterns can predict Parkinson’s years before diagnosis</b>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5708704/" target="_blank"><sup>[3]</sup></a></li> 
-    <li>We found an average keystroke latency difference of <b>13.2ms</b> Parkinson’s patients.</li>    
-    `; 
+    `;
 
 document.addEventListener('DOMContentLoaded', function() {
     createbar(dataa);
@@ -110,7 +109,7 @@ function createbar(data) {
             openCategoryUrl(d.category);
         });
 
-    // Add axis labels
+    // Add axis labels  (removed because I couldn't get the text to show :(     )
     // svg.append('text')
     //     .attr('class', 'x-axis-label')
     //     .attr('text-anchor', 'middle')
@@ -134,7 +133,6 @@ function createbar(data) {
         d3.select('.stats-section').html(defaultContent);
     });
 }
-
 
 function openCategoryUrl(category) {
     const statsSection = document.querySelector('.stats-section');
