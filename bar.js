@@ -9,9 +9,10 @@ const dataa = [
 
 const defaultContent = `
     <h2>Parkinson’s at a Glance</h2>
-    <li>Parkinson’s disease affects movement due to low dopamine levels, causing tremors, stiffness, and coordination issues.</li>
-    <li><b>10 million</b> people worldwide have Parkinson’s <a href="https://www.parkinson.org/understanding-parkinsons/statistics" target="_blank"><sup>[1]</sup></a></li> 
-    <li><b>60,000</b> Americans are diagnosed each year <a href="https://www.parkinson.org/understanding-parkinsons/statistics" target="_blank"><sup>[2]</sup></a></li> 
+    <li>A brain disorder (disease) that causes shaking, stiffness, and difficulty with balance and coordination.</li>
+    <li>Typically developed by people over 60 or older where symptoms gradually worsen over time.</li>
+    <li><b>10 million</b> people worldwide have Parkinson’s <a href="https://www.parkinson.org/understanding-parkinsons/statistics" target="_blank" style="text-decoration: none;"><sup>[1]</sup></a></li> 
+    <li><b>60,000</b> Americans are diagnosed each year <a href="https://www.parkinson.org/understanding-parkinsons/statistics" target="_blank" style="text-decoration: none;"><sup>[2]</sup></a></li> 
     <li>Early symptoms include <b>slower typing speed, increased errors, and irregular keystroke intervals</b>.</li>
     `;
 
@@ -168,7 +169,7 @@ function openCategoryUrl(category) {
                 <img src="https://www.bocsci.com/upload/image/Mechanism-of-Action-of-Monoamine-Oxidase-B-Inhibitor.jpg" alt="MOA-B" style="height: 150px; width: auto;">
             </a>
         `;
-    } else if (category === 'Other' || category === 'Not Medicated') {
+    } else if (category === 'Other') {
         newContent = `
             <h2>Other Medications <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications" target="_blank" style="font-size: 15px;">More Info</a></h2>
             <li><b>Anticholinergics</b> – Help with tremors but are rarely used due to cognitive side effects.</li>
@@ -176,6 +177,17 @@ function openCategoryUrl(category) {
             <li><b>COMT Inhibitors</b> – Extend Levodopa’s effects by blocking dopamine breakdown (e.g., Entacapone, Tolcapone).</li>
             <a href="https://www.azmedications.com/wp-content/uploads/2018/09/Levodopa.jpg" target="_blank">
                 <img src="https://www.michaeljfox.org/sites/default/files/styles/featured_xl/public/images/featured/Pills-spilling-out-of-bottle-generic_14.jpg?itok=F-FGoWVP" alt="pills spilling generic" style="height: 150px; width: auto;">
+            </a>
+        `;
+    }
+    else if (category === 'Not Medicated') {
+        newContent = `
+            <h2>Not Medicated</h2>
+            <li>Some people may not need medication early on, especially if symptoms are mild.</li>
+            <li>Exercise, physical therapy, and lifestyle changes can help manage symptoms.</li>
+            <li>Medication may be started later if symptoms worsen.</li>
+            <a href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjivitaayurveda.com%2Fwp-content%2Fuploads%2F2022%2F09%2FParkinsons-Disease-Symptoms-GettyImages-1091125296-2000-dee72c7d81a6465aab0d2f1955a8c7fb.jpeg&f=1&nofb=1&ipt=a302c9b0852c0981fbfc8dc3c270ec7f7dfcf134a78da2bc9b9ab1f7144522a0&ipo=images" target="_blank">
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjivitaayurveda.com%2Fwp-content%2Fuploads%2F2022%2F09%2FParkinsons-Disease-Symptoms-GettyImages-1091125296-2000-dee72c7d81a6465aab0d2f1955a8c7fb.jpeg&f=1&nofb=1&ipt=a302c9b0852c0981fbfc8dc3c270ec7f7dfcf134a78da2bc9b9ab1f7144522a0&ipo=images" alt="exercise" style="height: 150px; width: auto;">
             </a>
         `;
     }
