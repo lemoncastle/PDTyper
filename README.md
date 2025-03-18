@@ -8,7 +8,7 @@ We created a visualization that shows the difference in typing speed between peo
 The most challenging part of the project will be getting the animations to work dynamically. The dataset we are working with is large and thus slow and difficult so we have been hardcoding values in order to get the animations to work. We will need to find a way to efficiently get these values into the working visualization. We want to also implement more features to the visualization that allow for further customization such as a toggle for whether the patient is currently on parkinsons medication or not.
 
 ### Demo Video
-- [Demo Video (Recorded Mar 11, 2025)](https://youtu.be/jcF4mJ28G9I)
+- [Link](https://youtu.be/jcF4mJ28G9I)  (Recorded Mar 11, 2025)
 
 <!-- ### Introduction
 
