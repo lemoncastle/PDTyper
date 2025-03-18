@@ -105,6 +105,12 @@ function generateKeyboard(containerId) {
 
 // animates keyboard
 function animateKeyboard(phrase, containerId, holdTime, flightTime) {
+    if(phrase) {
+        if(containerId === 'keyboard-container-1') {
+            phrase = insertRandomTildes(phrase);
+        }
+    }
+    
     let isAnimating = containerId === 'keyboard-container-1' ? isAnimating1 : isAnimating2;
     if (isAnimating) return; // Prevent multiple animations
     if (containerId === 'keyboard-container-1') {
@@ -160,6 +166,8 @@ function animateKeyboard(phrase, containerId, holdTime, flightTime) {
         let key = phrase[index].toUpperCase();
         if (key === ' ') {
             key = 'Space';
+        }else if (key === '~'){
+            key = 'Delete';
         }
 
         const keyDivs = document.querySelectorAll(`#${containerId} .key`);
@@ -173,7 +181,13 @@ function animateKeyboard(phrase, containerId, holdTime, flightTime) {
             }
         });
         if (containerId === 'keyboard-container-1') {
-            outputElement1.textContent += phrase[index];
+            if (key==='Delete') {
+                outputElement1.innerHTML += `<span style="color: red;">~</span>`; // Show ` in red
+            } else {
+                outputElement1.innerHTML += phrase[index];
+            }
+            
+            // outputElement1.textContent += phrase[index];
             outputElement1.style.color = '#454545';
             progressBar1.style.width = ((index + 1) / phrase.length) * 100 + '%'; // Update progress bar 1
             time1 = Date.now() - startTime;
@@ -220,4 +234,31 @@ function updateDifference() {
         // Stop updating when both are finished
         if (!isAnimating1 && !isAnimating2) { clearInterval(interval); }
     }, 75); //update every 75ms
+}
+
+function insertRandomTildes(phrase) {
+    if (phrase.length > 30) {
+        let positions = new Set();
+        while (positions.size < 2) {
+            let randomIndex = Math.floor(Math.random() * phrase.length);
+            positions.add(randomIndex);
+        }
+
+        let phraseArray = phrase.split('');
+        positions.forEach(pos => phraseArray.splice(pos, 0, '~'));
+        return phraseArray.join('');
+    }
+
+    if (phrase.length < 30) {
+        let positions = new Set();
+        while (positions.size < 1) {
+            let randomIndex = Math.floor(Math.random() * phrase.length);
+            positions.add(randomIndex);
+        }
+
+        let phraseArray = phrase.split('');
+        positions.forEach(pos => phraseArray.splice(pos, 0, '~'));
+        return phraseArray.join('');
+    }
+    return phrase;
 }
