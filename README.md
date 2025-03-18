@@ -9,7 +9,7 @@ The most challenging part of the project will be getting the animations to work 
 
 
 ### TBD
-- Link to demo video
+- [Demo Video](https://youtu.be/jcF4mJ28G9I)
 
 <!-- ### Introduction
 
