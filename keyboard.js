@@ -105,11 +105,11 @@ function generateKeyboard(containerId) {
 
 // animates keyboard
 function animateKeyboard(phrase, containerId, holdTime, flightTime) {
-    if(phrase) {
-        if(containerId === 'keyboard-container-1') {
-            phrase = insertRandomTildes(phrase);
-        }
-    }
+    // if(phrase) {
+    //     if(containerId === 'keyboard-container-1') {
+    //         phrase = insertRandomTildes(phrase);
+    //     }
+    // }
     
     let isAnimating = containerId === 'keyboard-container-1' ? isAnimating1 : isAnimating2;
     if (isAnimating) return; // Prevent multiple animations
