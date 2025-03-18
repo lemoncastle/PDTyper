@@ -9,12 +9,12 @@ const dataa = [
 
 const defaultContent = `
     <h2>Parkinson’s at a Glance</h2>
-    <li><b>10 million</b> people worldwide have Parkinson’s <a href="https://www.parkinson.org/understanding-parkinsons/statistics" target="_blank"><sup>[1]</sup></a></li> 
-    <li><b>60,000</b> Americans are diagnosed each year <a href="https://www.parkinson.org/understanding-parkinsons/statistics" target="_blank"><sup>[3]</sup></a></li> 
+    <li>A brain disorder (disease) that causes shaking, stiffness, and difficulty with balance and coordination.</li>
+    <li>Typically developed by people over 60 or older where symptoms gradually worsen over time.</li>
+    <li><b>10 million</b> people worldwide have Parkinson’s <a href="https://www.parkinson.org/understanding-parkinsons/statistics" target="_blank" style="text-decoration: none;"><sup>[1]</sup></a></li> 
+    <li><b>60,000</b> Americans are diagnosed each year <a href="https://www.parkinson.org/understanding-parkinsons/statistics" target="_blank" style="text-decoration: none;"><sup>[2]</sup></a></li> 
     <li>Early symptoms include <b>slower typing speed, increased errors, and irregular keystroke intervals</b>.</li>
-    <li>Research suggests <b>typing patterns can predict Parkinson’s years before diagnosis</b>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5708704/" target="_blank"><sup>[3]</sup></a></li> 
-    <li>We found an average keystroke latency difference of <b>13.2ms</b> Parkinson’s patients.</li>    
-    `; 
+    `;
 
 document.addEventListener('DOMContentLoaded', function() {
     createbar(dataa);
@@ -110,7 +110,7 @@ function createbar(data) {
             openCategoryUrl(d.category);
         });
 
-    // Add axis labels
+    // Add axis labels  (removed because I couldn't get the text to show :(     )
     // svg.append('text')
     //     .attr('class', 'x-axis-label')
     //     .attr('text-anchor', 'middle')
@@ -135,44 +135,60 @@ function createbar(data) {
     });
 }
 
-
 function openCategoryUrl(category) {
     const statsSection = document.querySelector('.stats-section');
     let newContent = '';
     event.stopPropagation();
     if (category === 'Levodopa') {
         newContent = `
-            <h2>Levodopa (L-DOPA)</h2>
+            <h2>Levodopa (L-DOPA) <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications/levodopa" target="_blank" style="font-size: 15px;">More Info</a></h2>
             <li><b>What it does: </b>Converts into dopamine in the brain, reducing movement symptoms.</li>
             <li>Improves movement, stiffness, and tremors.</li>
             <li><b>Side effects: </b>Can cause dyskinesia (involuntary movements) over time.</li>
-            <li>For more information, visit <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications/levodopa" target="_blank">this link</a>.</li>
+            <a href="https://www.azmedications.com/wp-content/uploads/2018/09/Levodopa.jpg" target="_blank">
+                <img src="./data/levodopa.jpg" alt="levodopa" style="height: 200px; width: auto;">
+            </a>
         `;
     } else if (category === 'Dopamine Agonist') {
         newContent = `
-            <h2>Dopamine Agonist (DA)</h2>
+            <h2>Dopamine Agonist (DA) <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications/levodopa" target="_blank" style="font-size: 15px;">More Info</a></h2>
             <li><b>What it does:</b> Mimic dopamine in the brain without converting into it.</li>
             <li>Used for early-stage Parkinson’s or as a supplement to Levodopa.</li>
-            <li><b>Examples: </b>Pramipexole, Ropinirole, Rotigotine (Neupro patch).</li>
             <li><b>Side effects: </b>Sleepiness, impulse control issues (e.g., gambling, overeating).</li>
-            <li>For more information, visit <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications/dopamine-antagonists" target="_blank">this link</a>.</li>
+            <a href="https://www.invitra.com/en/wp-content/uploads/2019/12/treatment-dopamine-agonists-780x332.png" target="_blank">
+                <img src="./data/DA.png" alt="dopamineagonist" style="height: 150px; width: auto;">
+            </a>
         `;
     } else if (category === 'MAO-B') {
         newContent = `
-            <h2>MAO-B Inhibitors (Monoamine Oxidase-B Inhibitors)</h2>
+            <h2>MAO-B Inhibitors (Monoamine Oxidase-B Inhibitors) <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications/mao-b-inhibitors" target="_blank" style="font-size: 15px;">More Info</a></h2>
             <li><b>What it does:</b> Slow the breakdown of dopamine in the brain by blocking the monoamine oxidase-B (MAO-B) enzyme.</li>
             <li>Used alone in early stages or with other meds later.</li>
-            <li><b>Examples: </b>Selegiline, Rasagiline, Safinamide.</li>
             <li><b>Side effects: </b>Insomnia, nausea, interactions with antidepressants.</li>
-            <li>For more information, visit <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications/mao-b-inhibitors" target="_blank">this link</a>.</li>
+            <a href="https://www.azmedications.com/wp-content/uploads/2018/09/Levodopa.jpg" target="_blank">
+                <img src="https://www.bocsci.com/upload/image/Mechanism-of-Action-of-Monoamine-Oxidase-B-Inhibitor.jpg" alt="MOA-B" style="height: 150px; width: auto;">
+            </a>
         `;
-    } else if (category === 'Other' || category === 'Not Medicated') {
+    } else if (category === 'Other') {
         newContent = `
-            <h2>Other Medications</h2>
+            <h2>Other Medications <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications" target="_blank" style="font-size: 15px;">More Info</a></h2>
             <li><b>Anticholinergics</b> – Help with tremors but are rarely used due to cognitive side effects.</li>
             <li><b>Amantadine</b> – Originally an antiviral drug, it can help with Levodopa-induced dyskinesia.</li>
             <li><b>COMT Inhibitors</b> – Extend Levodopa’s effects by blocking dopamine breakdown (e.g., Entacapone, Tolcapone).</li>
-            <li>For more information, visit <a href="https://www.parkinson.org/living-with-parkinsons/treatment/prescription-medications" target="_blank">this link</a>.</li>
+            <a href="https://www.azmedications.com/wp-content/uploads/2018/09/Levodopa.jpg" target="_blank">
+                <img src="https://www.michaeljfox.org/sites/default/files/styles/featured_xl/public/images/featured/Pills-spilling-out-of-bottle-generic_14.jpg?itok=F-FGoWVP" alt="pills spilling generic" style="height: 150px; width: auto;">
+            </a>
+        `;
+    }
+    else if (category === 'Not Medicated') {
+        newContent = `
+            <h2>Not Medicated</h2>
+            <li>Some people may not need medication early on, especially if symptoms are mild.</li>
+            <li>Exercise, physical therapy, and lifestyle changes can help manage symptoms.</li>
+            <li>Medication may be started later if symptoms worsen.</li>
+            <a href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjivitaayurveda.com%2Fwp-content%2Fuploads%2F2022%2F09%2FParkinsons-Disease-Symptoms-GettyImages-1091125296-2000-dee72c7d81a6465aab0d2f1955a8c7fb.jpeg&f=1&nofb=1&ipt=a302c9b0852c0981fbfc8dc3c270ec7f7dfcf134a78da2bc9b9ab1f7144522a0&ipo=images" target="_blank">
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjivitaayurveda.com%2Fwp-content%2Fuploads%2F2022%2F09%2FParkinsons-Disease-Symptoms-GettyImages-1091125296-2000-dee72c7d81a6465aab0d2f1955a8c7fb.jpeg&f=1&nofb=1&ipt=a302c9b0852c0981fbfc8dc3c270ec7f7dfcf134a78da2bc9b9ab1f7144522a0&ipo=images" alt="exercise" style="height: 150px; width: auto;">
+            </a>
         `;
     }
 
