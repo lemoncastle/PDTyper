@@ -1,5 +1,4 @@
 // Code to display the progress bar on the top of the page (on scroll)
-
 const scrollContainer = document.getElementById('c');
 
 scrollContainer.addEventListener('scroll', () => {

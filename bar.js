@@ -109,15 +109,6 @@ function createbar(data) {
         .on('click', function(event, d) {
             openCategoryUrl(d.category);
         });
-
-    // Add axis labels  (removed because I couldn't get the text to show :(     )
-    // svg.append('text')
-    //     .attr('class', 'x-axis-label')
-    //     .attr('text-anchor', 'middle')
-    //     .attr('x', width / 2)
-    //     .attr('y', height + margin.bottom - 10)
-    //     .text('Medication Type')
-    //     .style('font-size', '13px');
     
     svg.append('text')
         .attr('class', 'y-axis-label')
@@ -166,7 +157,7 @@ function openCategoryUrl(category) {
             <li>Used alone in early stages or with other meds later.</li>
             <li><b>Side effects: </b>Insomnia, nausea, interactions with antidepressants.</li>
             <a href="https://www.azmedications.com/wp-content/uploads/2018/09/Levodopa.jpg" target="_blank">
-                <img src="https://www.bocsci.com/upload/image/Mechanism-of-Action-of-Monoamine-Oxidase-B-Inhibitor.jpg" alt="MOA-B" style="height: 150px; width: auto;">
+                <img src="./data/MOAB.jpg" alt="MOA-B" style="height: 150px; width: auto;">
             </a>
         `;
     } else if (category === 'Other') {
@@ -176,7 +167,7 @@ function openCategoryUrl(category) {
             <li><b>Amantadine</b> – Originally an antiviral drug, it can help with Levodopa-induced dyskinesia.</li>
             <li><b>COMT Inhibitors</b> – Extend Levodopa’s effects by blocking dopamine breakdown (e.g., Entacapone, Tolcapone).</li>
             <a href="https://www.azmedications.com/wp-content/uploads/2018/09/Levodopa.jpg" target="_blank">
-                <img src="https://www.michaeljfox.org/sites/default/files/styles/featured_xl/public/images/featured/Pills-spilling-out-of-bottle-generic_14.jpg?itok=F-FGoWVP" alt="pills spilling generic" style="height: 150px; width: auto;">
+                <img src="./data/GENERIC.jpg" alt="pills spilling generic" style="height: 150px; width: auto;">
             </a>
         `;
     }
@@ -187,7 +178,7 @@ function openCategoryUrl(category) {
             <li>Exercise, physical therapy, and lifestyle changes can help manage symptoms.</li>
             <li>Medication may be started later if symptoms worsen.</li>
             <a href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjivitaayurveda.com%2Fwp-content%2Fuploads%2F2022%2F09%2FParkinsons-Disease-Symptoms-GettyImages-1091125296-2000-dee72c7d81a6465aab0d2f1955a8c7fb.jpeg&f=1&nofb=1&ipt=a302c9b0852c0981fbfc8dc3c270ec7f7dfcf134a78da2bc9b9ab1f7144522a0&ipo=images" target="_blank">
-                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjivitaayurveda.com%2Fwp-content%2Fuploads%2F2022%2F09%2FParkinsons-Disease-Symptoms-GettyImages-1091125296-2000-dee72c7d81a6465aab0d2f1955a8c7fb.jpeg&f=1&nofb=1&ipt=a302c9b0852c0981fbfc8dc3c270ec7f7dfcf134a78da2bc9b9ab1f7144522a0&ipo=images" alt="exercise" style="height: 150px; width: auto;">
+                <img src="./data/PAIN.jpeg" alt="exercise" style="height: 150px; width: auto;">
             </a>
         `;
     }

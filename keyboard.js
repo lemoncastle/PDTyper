@@ -8,14 +8,6 @@ let data;
 const defaultPhrase = "the quick brown fox jumps over the lazy dog";
 const phraseInput = document.getElementById('phrase-input');
 
-async function readCSV(filePath) {
-    const response = await fetch(filePath);
-    const text = await response.text();
-    return text;
-} readCSV('./data/time_of_day.csv').then(csvData => {
-    data = csvData;
-});
-
 document.addEventListener('DOMContentLoaded', () => {
     generateKeyboard('keyboard-container-1');
     generateKeyboard('keyboard-container-2');
@@ -24,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let phrase = phraseInput.value || defaultPhrase;
         phraseInput.disabled = true;
 
-        animateKeyboard(phrase, 'keyboard-container-1',103,166); // old values 102,171
-        animateKeyboard(phrase, 'keyboard-container-2',128,211); // old values 128,211    
+        animateKeyboard(phrase, 'keyboard-container-1',102,171);
+        animateKeyboard(phrase, 'keyboard-container-2',128,211);    
     });
 });
 
@@ -105,11 +97,6 @@ function generateKeyboard(containerId) {
 
 // animates keyboard
 function animateKeyboard(phrase, containerId, holdTime, flightTime) {
-    // if(phrase) {
-    //     if(containerId === 'keyboard-container-1') {
-    //         phrase = insertRandomTildes(phrase);
-    //     }
-    // }
     
     let isAnimating = containerId === 'keyboard-container-1' ? isAnimating1 : isAnimating2;
     if (isAnimating) return; // Prevent multiple animations
@@ -234,31 +221,4 @@ function updateDifference() {
         // Stop updating when both are finished
         if (!isAnimating1 && !isAnimating2) { clearInterval(interval); }
     }, 75); //update every 75ms
-}
-
-function insertRandomTildes(phrase) {
-    if (phrase.length > 30) {
-        let positions = new Set();
-        while (positions.size < 2) {
-            let randomIndex = Math.floor(Math.random() * phrase.length);
-            positions.add(randomIndex);
-        }
-
-        let phraseArray = phrase.split('');
-        positions.forEach(pos => phraseArray.splice(pos, 0, '~'));
-        return phraseArray.join('');
-    }
-
-    if (phrase.length < 30) {
-        let positions = new Set();
-        while (positions.size < 1) {
-            let randomIndex = Math.floor(Math.random() * phrase.length);
-            positions.add(randomIndex);
-        }
-
-        let phraseArray = phrase.split('');
-        positions.forEach(pos => phraseArray.splice(pos, 0, '~'));
-        return phraseArray.join('');
-    }
-    return phrase;
 }
