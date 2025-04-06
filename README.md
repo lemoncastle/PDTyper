@@ -1,5 +1,5 @@
 ## PDTyper
-Link to Website: https://chriss-mo.github.io/PDTyper/
+Link to Website: lemoncastle.github.io/PDTyper/
 ### Initial Prototype
 1. What have you done so far?  
 We created a visualization that shows the difference in typing speed between people with and without parkinsons. We have an animation that plays and shows the difference in typing speed. We do this by showing the keys pressed and the words being typed out in real time along with a progress bar. The animation also has a stop button so that it can be reset or canceled anytime. There is a text box that allows users to enter their own phrases.
